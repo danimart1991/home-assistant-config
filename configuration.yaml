@@ -1,5 +1,3 @@
-
-# Configure a default setup of Home Assistant (frontend, api, etc)
 default_config:
 
 http:
@@ -9,6 +7,11 @@ http:
 
 lovelace:
   mode: yaml
+
+weather:
+  - platform: openweathermap
+    name: home
+    api_key: !secret weather_openweathermap_api_key
 
 # Text to speech
 tts:

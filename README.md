@@ -9,3 +9,9 @@ Here's my [Home Assistant](https://home-assistant.io/) configuration running [Ha
 - [Configurator](https://www.home-assistant.io/addons/configurator) to allow edit files directly into the Home Assistant web interface. I use this to test quickly configurations that I will later take to the code repository.
 - [Git pull](https://www.home-assistant.io/addons/git_pull/) to update local configuration directly from this repo.
 - [SSH + Web Server](https://github.com/hassio-addons/addon-ssh) to run terminal full commands.
+
+## Entities
+
+| Entity | Installation | How tos |
+|---|---|---|
+| [OpenWeatherMap](https://openweathermap.org/) | Component + Card | English: Coming soon. <br/> Spanish: Coming soon. |
