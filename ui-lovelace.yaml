@@ -1,0 +1,15 @@
+title: Home
+
+views:
+  - id: 0
+    icon: mdi:home
+    name: Home
+    path: home
+    badges: [
+      "person.dani",
+      "sun.sun"
+    ]
+    cards:
+      - type: weather-forecast
+        entity: weather.home
+      

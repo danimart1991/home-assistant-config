@@ -7,6 +7,9 @@ http:
   ssl_certificate: /ssl/fullchain.pem
   ssl_key: /ssl/privkey.pem
 
+lovelace:
+  mode: yaml
+
 # Text to speech
 tts:
   - platform: google_translate
