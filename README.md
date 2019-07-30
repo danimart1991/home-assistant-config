@@ -20,14 +20,16 @@ Make sure to check it out.
 
 Thanks to Hass.io, I can install add-ons that make my life easier.
 
-- [Check Home Assistant configuration](https://github.com/home-assistant/hassio-addons/tree/master/check_config) to check all is ready to update.
-- [DuckDNS + Let's Encrypt](https://www.home-assistant.io/addons/duckdns/) to create a secure (SSL) and static IP remote connection to Home Assistant.
-- [Configurator](https://www.home-assistant.io/addons/configurator) to allow edit files directly into the Home Assistant web interface. I use this to test quickly configurations that I will later take to the code repository.
-- [Git pull](https://www.home-assistant.io/addons/git_pull/) to update local configuration directly from this repo.
-- [SSH + Web Server](https://github.com/hassio-addons/addon-ssh) to run terminal full commands.
+| Add-on | Use | Español | English |
+| --- | --- | --- | --- |
+| [Check Home Assistant configuration](https://github.com/home-assistant/hassio-addons/tree/master/check_config) | Check all is ready to update | [🔗](https://www.danielmartingonzalez.com/conociendo-home-assistant/#instalando-nuestro-primer-add-on) | [🔗](https://www.danielmartingonzalez.com/meeting-home-assistant/#installing-our-first-add-on) |
+| [Configurator](https://www.home-assistant.io/addons/configurator) | Edit files directly into the Home Assistant web interface. <br/> Quickly test configurations that I will later take to the code repository. | [🔗](https://www.danielmartingonzalez.com/configura-home-assistant-editando-sus-archivos/) | [🔗](https://www.danielmartingonzalez.com/configure-home-assistant-editing-its-files/) |
+| [DuckDNS + Let's Encrypt](https://www.home-assistant.io/addons/duckdns/) | Secure (SSL) and static IP remote connection to Home Assistant. | | |
+| [Git pull](https://www.home-assistant.io/addons/git_pull/) | Update local configuration directly from this repository. | | |
+| [SSH + Web Server](https://github.com/hassio-addons/addon-ssh) | Run terminal full commands. | | |
 
 ## Entities
 
-| Entity | Installation | How tos |
-|---|---|---|
-| [OpenWeatherMap](https://openweathermap.org/) | Component + Card | English: Coming soon. <br/> Español: Próximamente. |
+| Entity | Installation | Español | English |
+| --- | --- | --- | --- |
+| [OpenWeatherMap](https://openweathermap.org/) | HA Component + Card | [🔗](https://www.danielmartingonzalez.com/configura-home-assistant-editando-sus-archivos/#usando-configurator) | [🔗](https://www.danielmartingonzalez.com/configure-home-assistant-editing-its-files/#using-configurator) |
