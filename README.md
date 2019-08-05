@@ -13,6 +13,9 @@ This repository has complementary articles to follow all the progress in:
 | --- | --- | --- |
 | Domotizing our house with Home Assistant | [🔗](https://www.nocountryforgeeks.com/domotizando-nuestra-casa-con-home-assistant/) | [🔗](https://www.danielmartingonzalez.com/domotizing-our-house-with-home-assistant/) |
 | Meeting Home Assistant | [🔗](https://www.danielmartingonzalez.com/conociendo-home-assistant/) | [🔗](https://www.danielmartingonzalez.com/meeting-home-assistant/) |
+| Protect your private info with secrets.yaml | | |
+| Moving all settings to YAML files | | |
+| Installing a Custom Card for Lovelace | | |
   
 Make sure to check it out.
 
@@ -24,7 +27,7 @@ Thanks to Hass.io, I can install add-ons that make my life easier.
 | --- | --- | --- | --- |
 | [Check Home Assistant configuration](https://github.com/home-assistant/hassio-addons/tree/master/check_config) | Check all is ready to update | [🔗](https://www.danielmartingonzalez.com/conociendo-home-assistant/#instalando-nuestro-primer-add-on) | [🔗](https://www.danielmartingonzalez.com/meeting-home-assistant/#installing-our-first-add-on) |
 | [Configurator](https://www.home-assistant.io/addons/configurator) | Edit files directly into the Home Assistant web interface. <br/> Quickly test configurations that I will later take to the code repository. | [🔗](https://www.danielmartingonzalez.com/configura-home-assistant-editando-sus-archivos/) | [🔗](https://www.danielmartingonzalez.com/configure-home-assistant-editing-its-files/) |
-| [DuckDNS + Let's Encrypt](https://www.home-assistant.io/addons/duckdns/) | Secure (SSL) and static IP remote connection to Home Assistant. | | |
+| [DuckDNS + Let's Encrypt](https://www.home-assistant.io/addons/duckdns/) | Secure (SSL) and static IP remote connection to Home Assistant. | [🔗](https://www.danielmartingonzalez.com/controla-tu-casa-desde-cualquier-sitio-con-duckdns/) | [🔗](https://www.danielmartingonzalez.com/control-your-home-from-anywhere-with-duckdns/) |
 | [Git pull](https://www.home-assistant.io/addons/git_pull/) | Update local configuration directly from this repository. | | |
 | [SSH + Web Server](https://github.com/hassio-addons/addon-ssh) | Run terminal full commands. | | |
 
