@@ -12,4 +12,6 @@ views:
     cards:
       - type: weather-forecast
         entity: weather.home
+      - type: plant-status
+        entity: plant.living_room_orchid
       
