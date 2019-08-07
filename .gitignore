@@ -3,10 +3,14 @@
 *
 
 # You can whitelist files/folders with !, these will not be ignored.
+!docs
+!docs/images
 !*.yaml
 !*.HA_VERSION
 !.gitignore
 !*.md
+!*.jpg
+!LICENSE
 
 # Ignore folders.
 .storage
