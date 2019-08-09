@@ -21,8 +21,8 @@ sensor:
   - platform: miflora
     mac: !secret living_room_mi_flora_01_mac
     name: Living Room Mi Flora 01
-    force_update: false # If problems with value spikes use true
-    median: 1 # If problems with value spikes use 3 or 5
+    force_update: true # Fix problems with graphic spikes
+    median: 3 # Fix problems with graphic spikes
     monitored_conditions:
       - moisture
       - light
