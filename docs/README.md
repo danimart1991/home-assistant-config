@@ -13,7 +13,7 @@ This repository has complementary articles to follow all the progress in:
 | --- | --- | --- |
 | Domotizing our house with Home Assistant | [🔗](https://www.nocountryforgeeks.com/domotizando-nuestra-casa-con-home-assistant/) | [🔗](https://www.danielmartingonzalez.com/domotizing-our-house-with-home-assistant/) |
 | Meeting Home Assistant | [🔗](https://www.danielmartingonzalez.com/conociendo-home-assistant/) | [🔗](https://www.danielmartingonzalez.com/meeting-home-assistant/) |
-| Protect your private info with secrets.yaml | | |
+| Protect your private info with secrets.yaml | [🔗](https://www.danielmartingonzalez.com/protege-tu-informacion-privada-con-secrets-yaml/) | [🔗](https://www.danielmartingonzalez.com/protect-your-private-info-with-secrets-yaml/) |
 | Moving all settings to YAML files | | |
 | Installing a Custom Card for Lovelace | | |
   
