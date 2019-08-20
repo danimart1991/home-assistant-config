@@ -37,6 +37,8 @@ Thanks to Hass.io, I can install add-ons that make my life easier.
 | --- | --- | --- | --- |
 | [OpenWeatherMap](https://openweathermap.org/) | HA Component + Card | [🔗](https://www.danielmartingonzalez.com/configura-home-assistant-editando-sus-archivos/#usando-configurator) | [🔗](https://www.danielmartingonzalez.com/configure-home-assistant-editing-its-files/#using-configurator) |
 | Mi Flora / Mi Plant | HA Components + Custom Card | [🔗](https://www.danielmartingonzalez.com/cuidando-tus-plantas-con-mi-flora-y-home-assistant/) | [🔗](https://www.danielmartingonzalez.com/caring-your-plants-with-mi-flora-and-home-assistant/) |
+| System Monitor | HA Components + Custom Card | [🔗](https://www.danielmartingonzalez.com/supervisando-un-servidor-home-assistant/) | [🔗](https://www.danielmartingonzalez.com/monitoring-a-home-assistant-server/) |
+| Speedtest | HA Components + Custom Card | [🔗](https://www.danielmartingonzalez.com/supervisando-un-servidor-home-assistant/) | [🔗](https://www.danielmartingonzalez.com/monitoring-a-home-assistant-server/) |
 
 ## Lovelace (Dashboard)
 
@@ -44,4 +46,6 @@ Here are some screenshots of my [Lovelace Dashboard](https://www.home-assistant.
 
 ### Home
 
-![Dashboard Tab 0](/docs/images/screenshot_view_00.jpg)
+![Dashboard Home Tab](/docs/images/screenshot_view_00.jpg)
+
+![Dashboard System Tab](/docs/images/screenshot_view_01.jpg)
