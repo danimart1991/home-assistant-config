@@ -16,8 +16,23 @@ weather:
     name: home
     api_key: !secret weather_openweathermap_api_key
 
-# Plants
+speedtestdotnet:
+  scan_interval:
+    minutes: 30
+  monitored_conditions:
+    - ping
+    - download
+    - upload
+
 sensor:
+  - platform: systemmonitor
+    resources:
+      - type: disk_use_percent
+        arg: /
+      - type: memory_use_percent
+      - type: processor_use
+      - type: last_boot
+
   - platform: miflora
     mac: !secret living_room_mi_flora_01_mac
     name: Living Room Mi Flora 01
@@ -29,6 +44,7 @@ sensor:
       - temperature
       - conductivity
       - battery
+
 plant:
   # Orchidaceae, Phalaenopsis
   living_room_orchid:

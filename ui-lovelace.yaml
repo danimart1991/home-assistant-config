@@ -14,4 +14,26 @@ views:
         entity: weather.home
       - type: plant-status
         entity: plant.living_room_orchid
-      
+  - id: 1
+    icon: mdi:engine
+    name: System
+    path: system
+    cards:
+      - cards:
+          - cards:
+              - type: gauge
+                entity: sensor.processor_use
+              - type: gauge
+                entity: sensor.disk_use_percent
+              - type: gauge
+                entity: sensor.memory_use_percent
+            type: horizontal-stack
+          - entities:
+              - sensor.last_boot
+            type: entities
+        type: vertical-stack
+      - entities:
+          - sensor.speedtest_download
+          - sensor.speedtest_ping
+          - sensor.speedtest_upload
+        type: history-graph
