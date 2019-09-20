@@ -29,7 +29,7 @@ Thanks to Hass.io, I can install add-ons that make my life easier.
 | [Configurator](https://www.home-assistant.io/addons/configurator) | Edit files directly into the Home Assistant web interface. <br/> Quickly test configurations that I will later take to the code repository. | [🔗](https://www.danielmartingonzalez.com/configura-home-assistant-editando-sus-archivos/) | [🔗](https://www.danielmartingonzalez.com/configure-home-assistant-editing-its-files/) |
 | [DuckDNS + Let's Encrypt](https://www.home-assistant.io/addons/duckdns/) | Secure (SSL) and static IP remote connection to Home Assistant. | [🔗](https://www.danielmartingonzalez.com/controla-tu-casa-desde-cualquier-sitio-con-duckdns/) | [🔗](https://www.danielmartingonzalez.com/control-your-home-from-anywhere-with-duckdns/) |
 | [Git pull](https://www.home-assistant.io/addons/git_pull/) | Update local configuration directly from this repository. | | |
-| [SSH + Web Server](https://github.com/hassio-addons/addon-ssh) | Run terminal full commands. | | |
+| [SSH & Web Terminal](https://github.com/hassio-addons/addon-ssh) | Run console full commands. | [🔗](https://www.danielmartingonzalez.com/ssh-y-terminal-web-en-hassio/) | [🔗](https://www.danielmartingonzalez.com/ssh-and-web-terminal-in-hassio/) |
 
 ## Entities
 
