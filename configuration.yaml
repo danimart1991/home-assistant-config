@@ -65,6 +65,12 @@ plant:
     max_brightness: 30000
     check_days: 3
 
+tuya:
+  username: !secret tuya_username
+  password: !secret tuya_password
+  country_code: !secret tuya_country_code
+  platform: smart_life
+
 # Text to speech
 tts:
   - platform: google_translate
