@@ -14,6 +14,10 @@ views:
         entity: weather.home
       - type: plant-status
         entity: plant.living_room_orchid
+      - type: entities
+        title: Switches
+        entities:
+          - switch.81353660600194c9dbfe
   - id: 1
     icon: mdi:engine
     name: System
