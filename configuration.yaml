@@ -16,6 +16,12 @@ weather:
     name: home
     api_key: !secret weather_openweathermap_api_key
 
+telegram_bot:
+  - platform: polling
+    api_key: !secret telegram_bot_api_key
+    allowed_chat_ids:
+      - !secret telegram_bot_chat_id
+
 speedtestdotnet:
   scan_interval:
     minutes: 30
