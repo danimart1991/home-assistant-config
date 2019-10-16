@@ -1,1 +1,10 @@
-[]
+- id: notification_telegram_mi_flora_01_moisture
+  alias: 'Notification Telegram Mi Flora 01 Moisture'
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.living_room_mi_flora_01_moisture
+    below: 20
+  action:
+    service: telegram_bot.send_message
+    data:
+      message: 'Por favor, riega la orquídea cuanto antes.'
