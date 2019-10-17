@@ -41,3 +41,7 @@ views:
           - sensor.speedtest_ping
           - sensor.speedtest_upload
         type: history-graph
+      - type: entities
+        title: Automations
+        entities:
+          - automation.notification_telegram_mi_flora_01_moisture
