@@ -5,6 +5,7 @@
 # You can whitelist files/folders with !, these will not be ignored.
 !docs
 !docs/images
+!esphome
 !*.yaml
 !*.HA_VERSION
 !.gitignore
@@ -21,3 +22,4 @@
 ip_bans.yaml
 secrets.yaml
 known_devices.yaml
+esphome/secrets.yaml
