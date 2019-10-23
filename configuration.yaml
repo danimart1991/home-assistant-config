@@ -1,7 +1,19 @@
-default_config:
-
 homeassistant:
   customize: !include customize.yaml
+
+config:
+
+frontend:
+
+history:
+
+logbook:
+
+map:
+
+sun:
+
+system_health:
 
 http:
   base_url: !secret http_base_url
@@ -51,6 +63,13 @@ sensor:
       - conductivity
       - battery
 
+person:
+  - name: Dani
+    id: dani
+    user_id: 68fa5522b25e4f719fdfe20a398f508e
+    device_trackers:
+      []
+
 plant:
   # Orchidaceae, Phalaenopsis
   living_room_orchid:
@@ -76,10 +95,6 @@ tuya:
   password: !secret tuya_password
   country_code: !secret tuya_country_code
   platform: smart_life
-
-# Text to speech
-tts:
-  - platform: google_translate
 
 group: !include groups.yaml
 automation: !include automations.yaml
