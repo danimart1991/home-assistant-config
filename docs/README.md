@@ -38,10 +38,11 @@ Thanks to Hass.io, I can install add-ons that make my life easier.
 | Entity | Installation | Español | English |
 | --- | --- | --- | --- |
 | [OpenWeatherMap](https://openweathermap.org/) | HA Component + Card | [🔗](https://www.danielmartingonzalez.com/configura-home-assistant-editando-sus-archivos/#usando-configurator) | [🔗](https://www.danielmartingonzalez.com/configure-home-assistant-editing-its-files/#using-configurator) |
-| Mi Flora / Mi Plant | HA Component + Custom Card | [🔗](https://www.danielmartingonzalez.com/cuidando-tus-plantas-con-mi-flora-y-home-assistant/) | [🔗](https://www.danielmartingonzalez.com/caring-your-plants-with-mi-flora-and-home-assistant/) |
+| Mi Flora / Mi Plant | HA Component + Card | [🔗](https://www.danielmartingonzalez.com/cuidando-tus-plantas-con-mi-flora-y-home-assistant/) | [🔗](https://www.danielmartingonzalez.com/caring-your-plants-with-mi-flora-and-home-assistant/) |
 | System Monitor | HA Component + Custom Card | [🔗](https://www.danielmartingonzalez.com/supervisando-un-servidor-home-assistant/) | [🔗](https://www.danielmartingonzalez.com/monitoring-a-home-assistant-server/) |
 | Speedtest | HA Component + Custom Card | [🔗](https://www.danielmartingonzalez.com/supervisando-un-servidor-home-assistant/) | [🔗](https://www.danielmartingonzalez.com/monitoring-a-home-assistant-server/) |
 | Tuya | HA Component + Custom Card | | |
+| Telegram | HA Component + Custom Card | [🔗](https://www.danielmartingonzalez.com/notificaciones-de-home-assistant-en-telegram/) | [🔗](https://www.danielmartingonzalez.com/home-assistant-notifications-on-telegram/) |
 
 ## Lovelace (Dashboard)
 
