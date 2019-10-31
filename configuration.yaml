@@ -90,6 +90,16 @@ plant:
     max_brightness: 30000
     check_days: 3
 
+media_player:
+  - platform: webostv
+    name: webOS TV LF652V
+    host: !secret webos_tv_lf652v_host
+    filename: webostvlf652v.conf
+  - platform: webostv
+    name: webOS TV LM6300PLA
+    filename: webostvlm3000pla.conf
+    host: !secret webos_tv_lm6300pla_host
+
 tuya:
   username: !secret tuya_username
   password: !secret tuya_password
