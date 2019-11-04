@@ -46,9 +46,10 @@ Thanks to Hass.io, I can install add-ons that make my life easier.
 
 ## Devices
 
-| Model |
-| --- |
-| Sricam SP009 |
+| Model | Type (Use) |
+| --- | --- |
+| Sricam SP009 | Camera |
+| Raspberry Pi Zero W + Camera | Camera |
 
 ## Lovelace (Dashboard)
 

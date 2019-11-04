@@ -57,6 +57,12 @@ views:
         entities:
           - entity: camera.camera_sp009
             name: Camera
+      - type: entities
+        title: Garage
+        show_header_toggle: false
+        entities:
+          - entity: camera.rpi0w_meye_20f5d0f5
+            name: Camera
   - id: 2
     icon: mdi:home-floor-1
     name: Floor 1
