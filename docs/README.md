@@ -44,6 +44,12 @@ Thanks to Hass.io, I can install add-ons that make my life easier.
 | Telegram | HA Component + Custom Card | [🔗](https://www.danielmartingonzalez.com/notificaciones-de-home-assistant-en-telegram/) | [🔗](https://www.danielmartingonzalez.com/home-assistant-notifications-on-telegram/) |
 | Tuya | HA Component + Custom Card | [🔗](https://www.danielmartingonzalez.com/controlar-dispositivos-inteligentes-desde-tuya-smart-life/) | [🔗](https://www.danielmartingonzalez.com/control-smart-devices-with-tuya-smart-life/) |
 
+## Devices
+
+| Model |
+| --- |
+| Sricam SP009 |
+
 ## Lovelace (Dashboard)
 
 Here are some screenshots of my [Lovelace Dashboard](https://www.home-assistant.io/lovelace/) configuration (They may not be fully updated).

@@ -1,7 +1,15 @@
 homeassistant:
   customize: !include customize.yaml
 
+camera:
+  - platform: ffmpeg
+    name: Camera SP009
+    input: !secret camera_sp009_input
+    extra_arguments: -an
+
 config:
+
+ffmpeg:
 
 frontend:
 

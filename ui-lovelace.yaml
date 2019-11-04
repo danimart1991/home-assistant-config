@@ -51,6 +51,12 @@ views:
         entities:
           - entity: switch.81353660600194c9dbfe
             name: Washing Machine
+      - type: entities
+        title: Landing
+        show_header_toggle: false
+        entities:
+          - entity: camera.camera_sp009
+            name: Camera
   - id: 2
     icon: mdi:home-floor-1
     name: Floor 1
