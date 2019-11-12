@@ -46,10 +46,10 @@ Thanks to Hass.io, I can install add-ons that make my life easier.
 
 ## Devices
 
-| Model | Type (Use) |
-| --- | --- |
-| Sricam SP009 | Camera |
-| Raspberry Pi Zero W + Camera | Camera |
+| Model | Type (Use) | Español | English |
+| --- | --- | --- | --- |
+| Sricam SP009 | Camera | - | - |
+| Raspberry Pi Zero W + Camera | Camera | [🔗](https://www.nocountryforgeeks.com/camara-de-seguridad-con-rasberry-pi/) | [🔗](https://www.danielmartingonzalez.com/security-camera-with-raspberry-pi/) |
 
 ## Lovelace (Dashboard)
 
