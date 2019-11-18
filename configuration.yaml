@@ -114,12 +114,18 @@ media_player:
     name: webOS TV LM6300PLA
     filename: webostvlm3000pla.conf
     host: !secret webos_tv_lm6300pla_host
+    turn_on_action:
+      service: wake_on_lan.send_magic_packet
+      data:
+        mac: !secret webos_tv_lm6300pla_mac
 
 tuya:
   username: !secret tuya_username
   password: !secret tuya_password
   country_code: !secret tuya_country_code
   platform: smart_life
+
+wake_on_lan:
 
 group: !include groups.yaml
 automation: !include automations.yaml
