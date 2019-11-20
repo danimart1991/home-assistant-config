@@ -1,0 +1,62 @@
+substitutions:
+  devicename: esp8266_02
+  upper_devicename: ESP8266-02
+  default_update_interval: 60s
+
+esphome:
+  name: ${devicename}
+  platform: ESP8266
+  board: nodemcuv2
+
+wifi:
+  ssid: !secret base_wifi_ssid
+  password: !secret base_wifi_password
+  manual_ip:
+    static_ip: !secret esp8266_02_wifi_manual_ip_static_ip
+    gateway: !secret esp8266_02_wifi_manual_ip_gateway
+    subnet: !secret esp8266_02_wifi_manual_ip_subnet
+
+api:
+  password: !secret esp8266_02_api_password
+
+ota:
+  password: !secret esp8266_02_ota_password
+
+logger:
+
+i2c:
+  - sda: D2
+    scl: D1
+
+sensor:
+  - platform: bme280
+    update_interval: ${default_update_interval}
+    temperature:
+      name: ${upper_devicename} Temperature
+      id: ${devicename}_temperature
+    pressure:
+      name: ${upper_devicename} Pressure
+      id: ${devicename}_pressure
+    humidity:
+      name: ${upper_devicename} Humidity
+      id: ${devicename}_humidity
+    address: 0x76
+  - platform: wifi_signal
+    name: ${upper_devicename} WiFi Signal
+    id: ${devicename}_wifi_signal
+    update_interval: ${default_update_interval}
+
+binary_sensor:
+  - platform: status
+    name: ${upper_devicename} Status
+    id: ${devicename}_status
+    
+text_sensor:
+  - platform: version
+    name: ${upper_devicename} ESPHome Version
+    id: ${devicename}_esphome_version
+
+status_led:
+  pin:
+    number: D0
+    inverted: True
