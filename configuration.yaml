@@ -66,18 +66,6 @@ sensor:
       - type: processor_use
       - type: last_boot
 
-  - platform: miflora
-    mac: !secret living_room_mi_flora_01_mac
-    name: Living Room Mi Flora 01
-    force_update: true # Fix problems with graphic spikes
-    median: 3 # Fix problems with graphic spikes
-    monitored_conditions:
-      - moisture
-      - light
-      - temperature
-      - conductivity
-      - battery
-
 person:
   - name: Dani
     id: dani
@@ -89,11 +77,11 @@ plant:
   # Orchidaceae, Phalaenopsis
   living_room_orchid:
     sensors:
-      moisture: sensor.living_room_mi_flora_01_moisture
-      battery: sensor.living_room_mi_flora_01_battery
-      temperature: sensor.living_room_mi_flora_01_temperature
-      conductivity: sensor.living_room_mi_flora_01_conductivity
-      brightness: sensor.living_room_mi_flora_01_light_intensity
+      moisture: sensor.xiaomi_mijia_flora_01_moisture
+      battery: sensor.xiaomi_mijia_flora_01_battery_level
+      temperature: sensor.xiaomi_mijia_flora_01_temperature
+      conductivity: sensor.xiaomi_mijia_flora_01_soil_conductivity
+      brightness: sensor.xiaomi_mijia_flora_01_brightness
     min_moisture: 15
     max_moisture: 65
     min_battery: 20
