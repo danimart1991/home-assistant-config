@@ -1,6 +1,8 @@
 substitutions:
   devicename: esp32_01
   upper_devicename: ESP32-01
+  xiaomi_HHCCJCY01_devicename: xiaomi_hhccjcy01_01
+  xiaomi_HHCCJCY01_upper_devicename: Xiaomi Mijia Flora 01
   default_update_interval: 60s
 
 esphome:
@@ -28,6 +30,8 @@ i2c:
   - sda: GPIO21
     scl: GPIO22
 
+esp32_ble_tracker:
+
 sensor:
   - platform: bme280
     update_interval: ${default_update_interval}
@@ -41,6 +45,23 @@ sensor:
       name: ${upper_devicename} Humidity
       id: ${devicename}_humidity
     address: 0x76
+  - platform: xiaomi_hhccjcy01
+    mac_address: !secret xiaomi_hhccjcy01_01_mac
+    temperature:
+      name: ${xiaomi_HHCCJCY01_upper_devicename} Temperature
+      id: ${xiaomi_HHCCJCY01_devicename}_temperature
+    moisture:
+      name: ${xiaomi_HHCCJCY01_upper_devicename} Moisture
+      id: ${xiaomi_HHCCJCY01_devicename}_moisture
+    illuminance:
+      name: ${xiaomi_HHCCJCY01_upper_devicename} Brightness
+      id: ${xiaomi_HHCCJCY01_devicename}_brightness
+    conductivity:
+      name: ${xiaomi_HHCCJCY01_upper_devicename} Soil Conductivity
+      id: ${xiaomi_HHCCJCY01_devicename}_conductivity
+    battery_level:
+      name: ${xiaomi_HHCCJCY01_upper_devicename} Battery Level
+      id: ${xiaomi_HHCCJCY01_devicename}_battery
 
 binary_sensor:
   - platform: status
