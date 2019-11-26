@@ -17,34 +17,17 @@ views:
     name: Floor 0
     path: floor_0
     cards:
-      - type: entities
+      - type: glance
         title: Living Room
-        show_header_toggle: false
+        show_name: false
         entities:
-          - type: section
-            label: Orchid
-          - entity: sensor.living_room_mi_flora_01_moisture
-            name: Moisture
-          - entity: sensor.living_room_mi_flora_01_temperature
+          - entity: sensor.esp32_01_temperature
             name: Temperature
-          - entity: sensor.living_room_mi_flora_01_light_intensity
-            name: Light Intensity
-          - entity: sensor.living_room_mi_flora_01_conductivity
-            name: Conductivity
-          - entity: sensor.living_room_mi_flora_01_battery
-            name: Battery
-          - type: plant-status
-            entity: plant.living_room_orchid
-            name: Orchid
-          - type: divider
+          - entity: sensor.esp32_01_humidity
+            name: Humidity
+          - plant.living_room_orchid
           - entity: media_player.webos_tv_lf652v
             name: Television
-      - type: vertical-stack
-        cards:
-          - type: plant-status
-            entity: plant.living_room_orchid
-          - type: media-control
-            entity: media_player.webos_tv_lf652v
       - type: entities
         title: Utility
         show_header_toggle: false
@@ -52,13 +35,17 @@ views:
           - entity: switch.81353660600194c9dbfe
             name: Washing Machine
       - type: entities
-        title: Landing
+        title: Garage
         show_header_toggle: false
         entities:
+          - entity: sensor.esp8266_01_temperature
+            name: Temperature
+          - entity: sensor.esp8266_01_humidity
+            name: Humidity
           - entity: camera.camera_sp009
             name: Camera
       - type: entities
-        title: Garage
+        title: Landing
         show_header_toggle: false
         entities:
           - entity: camera.rpi0w_meye_20f5d0f5
@@ -68,27 +55,37 @@ views:
     name: Floor 1
     path: floor_1
     cards:
-      - type: entities
-        title: Master Bedroom
-        show_header_toggle: false
+      - type: glance
+        title: Hallway
+        show_name: false
         entities:
+          - entity: sensor.esp32_03_temperature
+            name: Temperature
+          - entity: sensor.esp32_03_humidity
+            name: Humidity
+      - type: glance
+        title: Kid's Bedroom
+        show_name: false
+        entities:
+          - entity: sensor.esp32_02_temperature
+            name: Temperature
+          - entity: sensor.esp32_02_humidity
+            name: Humidity
+      - type: glance
+        title: Master Bedroom
+        show_name: false
+        entities:
+          - entity: sensor.esp8266_02_temperature
+            name: Temperature
+          - entity: sensor.esp8266_02_humidity
+            name: Humidity
           - entity: media_player.webos_tv_lm6300pla
             name: Television
-      - type: media-control
-        entity: media_player.webos_tv_lm6300pla
   - id: 3
     icon: mdi:home-floor-2
     name: Floor 2
     path: floor_2
     cards:
-      - type: entities
-        title: Office
-        show_header_toggle: false
-        entities:
-          - entity: sensor.esp8266_01_temperature
-            name: Temperature
-          - entity: sensor.esp8266_01_humidity
-            name: Humidity
   - id: 4
     icon: mdi:engine
     name: System
@@ -116,15 +113,23 @@ views:
         title: Automations
         entities:
           - automation.notification_telegram_mi_flora_01_moisture
-      - type: entities
-        title: Second Floor
+      - type: glance
+        title: Status
+        columns: 3
+        show_state: false
+        entities:
+          - entity: binary_sensor.esp32_01_status
+            name: ESP32-01
+          - entity: binary_sensor.esp32_02_status
+            name: ESP32-02
+          - entity: binary_sensor.esp32_03_status
+            name: ESP32-03
+          - entity: binary_sensor.esp8266_01_status
+            name: ESP8266-01
+          - entity: binary_sensor.esp8266_02_status
+            name: ESP8266-02
+      - type: glance
+        title: Batteries
         show_header_toggle: false
         entities:
-          - type: section
-            label: Office Probe
-          - entity: binary_sensor.esp8266_01_status
-            name: Status
-          - entity: sensor.esp8266_01_wifi_signal_sensor
-            name: WiFi Signal
-          - entity: sensor.esp8266_01_esphome_version
-            name: ESPHome Version
+          - sensor.xiaomi_mijia_flora_01_battery_level
