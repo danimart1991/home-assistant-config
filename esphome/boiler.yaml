@@ -1,0 +1,50 @@
+# sonoff_basic_r2_mod_01 (dry contact)
+substitutions:
+  devicename: boiler
+  upper_devicename: Boiler
+
+esphome:
+  name: ${devicename}
+  platform: ESP8266
+  board: esp01_1m
+
+wifi:
+  ssid: !secret base_wifi_ssid
+  password: !secret base_wifi_password
+  manual_ip:
+    static_ip: !secret boiler_wifi_manual_ip_static_ip
+    gateway: !secret boiler_wifi_manual_ip_gateway
+    subnet: !secret boiler_wifi_manual_ip_subnet
+
+logger:
+
+api:
+  password: !secret boiler_api_password
+
+ota:
+  password: !secret boiler_ota_password
+
+binary_sensor:
+  - platform: gpio
+    pin:
+      number: GPIO0
+      mode: INPUT_PULLUP
+      inverted: True
+    id: ${devicename}_button
+    internal: True
+    on_press:
+      - switch.toggle: ${devicename}_heating
+  - platform: status
+    name: ${upper_devicename} Status
+    id: ${devicename}_status  
+
+status_led:
+  pin:
+    number: GPIO13
+    inverted: yes
+      
+switch:
+  - platform: gpio
+    pin: GPIO12
+    id: ${devicename}_heating
+    name: ${upper_devicename} Heating 

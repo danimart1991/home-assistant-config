@@ -12,6 +12,9 @@ views:
     cards:
       - type: weather-forecast
         entity: weather.home
+      - type: entities
+        entities:
+          - switch.boiler_heating
   - id: 1
     icon: mdi:home-floor-0
     name: Floor 0
@@ -128,6 +131,8 @@ views:
             name: ESP8266-01
           - entity: binary_sensor.esp8266_02_status
             name: ESP8266-02
+          - entity: binary_sensor.boiler_status
+            name: Boiler
       - type: glance
         title: Batteries
         show_header_toggle: false
