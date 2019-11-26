@@ -41,20 +41,11 @@ sensor:
       name: ${upper_devicename} Humidity
       id: ${devicename}_humidity
     address: 0x76
-  - platform: wifi_signal
-    name: ${upper_devicename} WiFi Signal
-    id: ${devicename}_wifi_signal
-    update_interval: ${default_update_interval}
 
 binary_sensor:
   - platform: status
     name: ${upper_devicename} Status
     id: ${devicename}_status
-    
-text_sensor:
-  - platform: version
-    name: ${upper_devicename} ESPHome Version
-    id: ${devicename}_esphome_version
 
 status_led:
   pin:
