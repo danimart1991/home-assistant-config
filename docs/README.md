@@ -16,8 +16,6 @@ This repository has complementary articles to follow all the progress in:
 | Protect your private info with secrets.yaml | [🔗](https://www.danielmartingonzalez.com/protege-tu-informacion-privada-con-secrets-yaml/) | [🔗](https://www.danielmartingonzalez.com/protect-your-private-info-with-secrets-yaml/) |
 | Home Assistant notifications on Telegram | [🔗](https://www.danielmartingonzalez.com/notificaciones-de-home-assistant-en-telegram/) | [🔗](https://www.danielmartingonzalez.com/home-assistant-notifications-on-telegram/) |
 | The meta-component Default Config | [🔗](https://www.danielmartingonzalez.com/el-meta-componente-default-config/) | [🔗](https://www.danielmartingonzalez.com/the-meta-component-default-config/) |
-| Moving all settings to YAML files | | |
-| Installing a Custom Card for Lovelace | | |
   
 Make sure to check it out.
 
@@ -32,6 +30,7 @@ Thanks to Hass.io, I can install add-ons that make my life easier.
 | [DuckDNS + Let's Encrypt](https://www.home-assistant.io/addons/duckdns/) | Secure (SSL) and static IP remote connection to Home Assistant. | [🔗](https://www.danielmartingonzalez.com/controla-tu-casa-desde-cualquier-sitio-con-duckdns/) | [🔗](https://www.danielmartingonzalez.com/control-your-home-from-anywhere-with-duckdns/) |
 | [Git pull](https://www.home-assistant.io/addons/git_pull/) | Update local configuration directly from this repository. | | |
 | [SSH & Web Terminal](https://github.com/hassio-addons/addon-ssh) | Run console full commands. | [🔗](https://www.danielmartingonzalez.com/ssh-y-terminal-web-en-hassio/) | [🔗](https://www.danielmartingonzalez.com/ssh-and-web-terminal-in-hassio/) |
+| [ESPHome](https://github.com/esphome/hassio) | ESPHome dashboard and device manager | [🔗](https://www.danielmartingonzalez.com/crea-tus-propios-dispositivos-inteligentes-con-esphome/) | [🔗](https://www.danielmartingonzalez.com/make-your-own-smart-devices-with-esphome/) |
 
 ## Entities
 
