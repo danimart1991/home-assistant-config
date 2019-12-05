@@ -115,7 +115,7 @@ views:
       - type: entities
         title: Automations
         entities:
-          - automation.notification_telegram_mi_flora_01_moisture
+          - automation.telegram_send_message_on_mijia_flora_01_moisture_is_low
       - type: glance
         title: Status
         columns: 3
