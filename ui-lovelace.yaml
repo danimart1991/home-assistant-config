@@ -74,6 +74,10 @@ views:
             name: Temperature
           - entity: sensor.esp32_02_humidity
             name: Humidity
+          - entity: camera.esp32_cam_01_camera
+            name: Camera
+          - entity: light.esp32_cam_01_light
+            name: Camera Light
       - type: glance
         title: Master Bedroom
         show_name: false
@@ -127,6 +131,8 @@ views:
             name: ESP32-02
           - entity: binary_sensor.esp32_03_status
             name: ESP32-03
+          - entity: binary_sensor.esp32_cam_01_status
+            name: ESP32-CAM-01
           - entity: binary_sensor.esp8266_01_status
             name: ESP8266-01
           - entity: binary_sensor.esp8266_02_status

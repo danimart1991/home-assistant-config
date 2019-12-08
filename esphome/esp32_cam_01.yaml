@@ -1,0 +1,60 @@
+substitutions:
+  devicename: esp32_cam_01
+  upper_devicename: ESP32-CAM-01
+  default_update_interval: 60s
+
+esphome:
+  name: ${devicename}
+  platform: ESP32
+  board: esp32cam
+
+wifi:
+  ssid: !secret base_wifi_ssid
+  password: !secret base_wifi_password
+  manual_ip:
+    static_ip: !secret esp32_cam_01_wifi_manual_ip_static_ip
+    gateway: !secret esp32_cam_01_wifi_manual_ip_gateway
+    subnet: !secret esp32_cam_01_wifi_manual_ip_subnet
+
+api:
+  password: !secret esp32_cam_01_api_password
+
+ota:
+  password: !secret esp32_cam_01_ota_password
+
+logger:
+
+binary_sensor:
+  - platform: status
+    name: ${upper_devicename} Status
+    id: ${devicename}_status
+
+# TODO: This doesn't work. Move to a physical led.
+#status_led:
+#  pin: GPIO2
+
+output:
+  - platform: gpio
+    pin: GPIO4
+    id: led
+
+light:
+  - platform: binary
+    name: ${upper_devicename} Light
+    id: ${devicename}_light
+    output: led
+
+esp32_camera:
+  external_clock:
+    pin: GPIO0
+    frequency: 20MHz
+  i2c_pins:
+    sda: GPIO26
+    scl: GPIO27
+  data_pins: [GPIO5, GPIO18, GPIO19, GPIO21, GPIO36, GPIO39, GPIO34, GPIO35]
+  vsync_pin: GPIO25
+  href_pin: GPIO23
+  pixel_clock_pin: GPIO22
+  power_down_pin: GPIO32
+  name: ${upper_devicename} Camera
+  id: ${devicename}_camera
