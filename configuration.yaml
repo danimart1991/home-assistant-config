@@ -65,6 +65,26 @@ sensor:
       - type: memory_use_percent
       - type: processor_use
       - type: last_boot
+  - platform: min_max
+    name: Home Mean Temperature
+    type: mean
+    round_digits: 1
+    entity_ids:
+      - sensor.ground_floor_mean_temperature
+      - sensor.first_floor_mean_temperature
+  - platform: min_max
+    name: Ground Floor Mean Temperature
+    type: mean
+    round_digits: 1
+    entity_ids:
+      - sensor.esp32_01_temperature
+  - platform: min_max
+    name: First Floor Mean Temperature
+    type: mean
+    round_digits: 1
+    entity_ids:
+      - sensor.esp32_03_temperature
+      - sensor.esp8266_02_temperature
 
 person:
   - name: Dani
@@ -73,9 +93,35 @@ person:
     device_trackers:
       []
 
+climate:
+  - platform: generic_thermostat
+    name: Home Thermostat
+    heater: switch.boiler_heating
+    target_sensor: sensor.home_mean_temperature
+    ac_mode: false
+    initial_hvac_mode: "off"
+    away_temp: 16
+    target_temp: 20
+  - platform: generic_thermostat
+    name: Ground Floor Thermostat
+    heater: switch.boiler_heating
+    target_sensor: sensor.ground_floor_mean_temperature
+    ac_mode: false
+    initial_hvac_mode: "off"
+    away_temp: 16
+    target_temp: 20
+  - platform: generic_thermostat
+    name: First Floor Thermostat
+    heater: switch.boiler_heating
+    target_sensor: sensor.first_floor_mean_temperature
+    ac_mode: false
+    initial_hvac_mode: "off"
+    away_temp: 16
+    target_temp: 20
+
 plant:
   # Orchidaceae, Phalaenopsis
-  living_room_orchid:
+  orchid:
     sensors:
       moisture: sensor.xiaomi_mijia_flora_01_moisture
       battery: sensor.xiaomi_mijia_flora_01_battery_level

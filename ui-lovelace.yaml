@@ -6,18 +6,24 @@ views:
     path: home
     badges:
       - person.dani
+      - sensor.home_mean_temperature
       - switch.boiler_heating
     cards:
+      - type: thermostat
+        entity: climate.home_thermostat
       - type: weather-forecast
         entity: weather.home
   - id: 1
     icon: mdi:home-floor-0
-    name: Floor 0
-    path: floor_0
+    name: Ground Floor
+    path: ground_floor
     badges:
       - person.dani
+      - sensor.ground_floor_mean_temperature
       - switch.boiler_heating
     cards:
+      - type: thermostat
+        entity: climate.ground_floor_thermostat
       - type: glance
         title: Living Room
         show_name: false
@@ -26,7 +32,7 @@ views:
             name: Temperature
           - entity: sensor.esp32_01_humidity
             name: Humidity
-          - plant.living_room_orchid
+          - plant.orchid
           - entity: media_player.webos_tv_lf652v
             name: Television
       - type: glance
@@ -52,12 +58,15 @@ views:
             name: Camera
   - id: 2
     icon: mdi:home-floor-1
-    name: Floor 1
-    path: floor_1
+    name: First Floor
+    path: first_floor
     badges:
       - person.dani
+      - sensor.first_floor_mean_temperature
       - switch.boiler_heating
     cards:
+      - type: thermostat
+        entity: climate.first_floor_thermostat
       - type: glance
         title: Hallway
         show_name: false
@@ -90,8 +99,8 @@ views:
             name: Television
   - id: 3
     icon: mdi:home-floor-2
-    name: Floor 2
-    path: floor_2
+    name: Second Floor
+    path: second_floor
     badges:
       - person.dani
       - switch.boiler_heating
