@@ -1,24 +1,22 @@
 title: Home
-
 views:
   - id: 0
     icon: mdi:home
     name: Home
     path: home
-    badges: [
-      "person.dani",
-      "sun.sun"
-    ]
+    badges:
+      - person.dani
+      - switch.boiler_heating
     cards:
       - type: weather-forecast
         entity: weather.home
-      - type: entities
-        entities:
-          - switch.boiler_heating
   - id: 1
     icon: mdi:home-floor-0
     name: Floor 0
     path: floor_0
+    badges:
+      - person.dani
+      - switch.boiler_heating
     cards:
       - type: glance
         title: Living Room
@@ -31,15 +29,14 @@ views:
           - plant.living_room_orchid
           - entity: media_player.webos_tv_lf652v
             name: Television
-      - type: entities
+      - type: glance
         title: Utility
-        show_header_toggle: false
         entities:
           - entity: switch.81353660600194c9dbfe
             name: Washing Machine
-      - type: entities
+      - type: glance
         title: Garage
-        show_header_toggle: false
+        show_name: false
         entities:
           - entity: sensor.esp8266_01_temperature
             name: Temperature
@@ -47,9 +44,9 @@ views:
             name: Humidity
           - entity: camera.camera_sp009
             name: Camera
-      - type: entities
+      - type: glance
         title: Landing
-        show_header_toggle: false
+        show_name: false
         entities:
           - entity: camera.rpi0w_meye_20f5d0f5
             name: Camera
@@ -57,6 +54,9 @@ views:
     icon: mdi:home-floor-1
     name: Floor 1
     path: floor_1
+    badges:
+      - person.dani
+      - switch.boiler_heating
     cards:
       - type: glance
         title: Hallway
@@ -92,11 +92,17 @@ views:
     icon: mdi:home-floor-2
     name: Floor 2
     path: floor_2
+    badges:
+      - person.dani
+      - switch.boiler_heating
     cards:
   - id: 4
     icon: mdi:engine
     name: System
     path: system
+    badges:
+      - person.dani
+      - switch.boiler_heating
     cards:
       - cards:
           - cards:
