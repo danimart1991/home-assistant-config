@@ -133,7 +133,8 @@ views:
         type: history-graph
       - type: entities
         title: Automations
-        entities:
+        entities:          
+          - automation.change_theme_on_sun_horizon
           - automation.telegram_send_message_on_mijia_flora_01_moisture_is_low
       - type: glance
         title: Status

@@ -6,6 +6,9 @@
 !docs
 !docs/images
 !esphome
+!themes
+!www
+!www/themes/*
 !*.yaml
 !*.HA_VERSION
 !.gitignore

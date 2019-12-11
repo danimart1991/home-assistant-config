@@ -1,3 +1,23 @@
+- id: change_theme_on_sun_horizon
+  alias: Change theme ON sun horizon
+  trigger:
+    - platform: homeassistant
+      event: start
+    - platform: state
+      entity_id: sun.sun
+      to: above_horizon
+    - platform: state
+      entity_id: sun.sun
+      to: below_horizon
+  action:
+    - service: frontend.set_theme
+      data_template:
+        name: >
+          {% if states.sun.sun.state == "above_horizon" %}
+            clear
+          {% else %}
+            clear-dark
+          {% endif %}
 - id: telegram_send_message_on_xiaomi_mijia_flora_01_moisture_is_low
   alias: 'Telegram send message ON mijia flora 01 moisture IS low'
   trigger:
