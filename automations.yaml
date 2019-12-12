@@ -3,12 +3,10 @@
   trigger:
     - platform: homeassistant
       event: start
-    - platform: state
-      entity_id: sun.sun
-      to: above_horizon
-    - platform: state
-      entity_id: sun.sun
-      to: below_horizon
+    - platform: sun
+      event: sunset
+    - platform: sun  
+      event: sunrise
   action:
     - service: frontend.set_theme
       data_template:

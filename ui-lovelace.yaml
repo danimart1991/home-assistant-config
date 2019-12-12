@@ -36,20 +36,26 @@ views:
           - entity: media_player.webos_tv_lf652v
             name: Television
       - type: glance
-        title: Utility
+        title: Garage
         entities:
           - entity: switch.81353660600194c9dbfe
             name: Washing Machine
+          - entity: sensor.esp32_02_temperature
+            name: Temperature
+          - entity: sensor.esp32_02_humidity
+            name: Humidity
       - type: glance
-        title: Garage
+        title: Hallway
         show_name: false
         entities:
-          - entity: sensor.esp8266_01_temperature
+          - entity: sensor.esp32_cam_01_temperature
             name: Temperature
-          - entity: sensor.esp8266_01_humidity
+          - entity: sensor.esp32_cam_01_humidity
             name: Humidity
-          - entity: camera.camera_sp009
+          - entity: camera.esp32_cam_01_camera
             name: Camera
+          - entity: light.esp32_cam_01_light
+            name: Camera Light
       - type: glance
         title: Landing
         show_name: false
@@ -75,18 +81,6 @@ views:
             name: Temperature
           - entity: sensor.esp32_03_humidity
             name: Humidity
-      - type: glance
-        title: Kid's Bedroom
-        show_name: false
-        entities:
-          - entity: sensor.esp32_02_temperature
-            name: Temperature
-          - entity: sensor.esp32_02_humidity
-            name: Humidity
-          - entity: camera.esp32_cam_01_camera
-            name: Camera
-          - entity: light.esp32_cam_01_light
-            name: Camera Light
       - type: glance
         title: Master Bedroom
         show_name: false
