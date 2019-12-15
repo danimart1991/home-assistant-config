@@ -38,8 +38,10 @@ views:
       - type: glance
         title: Garage
         entities:
-          - entity: switch.81353660600194c9dbfe
-            name: Washing Machine
+          - entity: switch.blitzwolf_shp2_01_switch
+            name: Blanket
+          - entity: camera.camera_sp009
+            name: Camera
           - entity: sensor.esp32_02_temperature
             name: Temperature
           - entity: sensor.esp32_02_humidity
@@ -149,6 +151,8 @@ views:
             name: ESP8266-02
           - entity: binary_sensor.boiler_status
             name: Boiler
+          - entity: binary_sensor.blitzwolf_shp2_01_status
+            name: Blitzwolf SHP2 (01)
       - type: glance
         title: Batteries
         show_header_toggle: false

@@ -1,0 +1,106 @@
+# Blitzwolf SHP2 V2.3 (01)
+substitutions:
+  devicename: blitzwolf_shp2_01
+  upper_devicename: Blitzwolf SHP2 (01)
+  current_res: "0.00221"
+  voltage_div: "955"
+
+esphome:
+  name: ${devicename}
+  platform: ESP8266
+  board: esp8285
+
+wifi:
+  ssid: !secret base_wifi_ssid
+  password: !secret base_wifi_password
+  manual_ip:
+    static_ip: !secret blitzwolf_shp2_01_wifi_manual_ip_static_ip
+    gateway: !secret base_wifi_manual_ip_gateway
+    subnet: !secret base_wifi_manual_ip_subnet
+
+time:
+  - platform: homeassistant
+    id: homeassistant_time
+
+api:
+  password: !secret base_api_password
+
+ota:
+  password: !secret base_ota_password
+
+logger:
+    
+binary_sensor:
+  - platform: gpio
+    id: ${devicename}_button
+    internal: True
+    pin:
+      number: GPIO3
+      mode: INPUT_PULLUP
+      inverted: True
+    on_press:
+      - switch.toggle: ${devicename}_switch
+  - platform: status
+    name: ${upper_devicename} Status
+    id: ${devicename}_status
+
+switch:
+  - platform: gpio
+    id: ${devicename}_switch
+    name: ${upper_devicename} Switch
+    restore_mode: ALWAYS_ON
+    pin: GPIO14
+    on_turn_on:
+      - switch.turn_on: ${devicename}_blue_led
+    on_turn_off:
+      - switch.turn_off: ${devicename}_blue_led
+
+  - platform: gpio
+    id: ${devicename}_blue_led
+    internal: True
+    restore_mode: ALWAYS_ON
+    pin: 
+      number: GPIO01
+      inverted: True
+
+status_led:
+  pin:
+    number: GPIO13
+    inverted: True
+
+sensor:
+  - platform: hlw8012
+    sel_pin:
+      number: GPIO12
+      inverted: True
+    cf_pin: GPIO04
+    cf1_pin: GPIO05
+    current_resistor: ${current_res}
+    voltage_divider: ${voltage_div}
+    current:
+      id: ${devicename}_amperage
+      name: ${upper_devicename} Amperage
+      icon: mdi:current-ac
+      unit_of_measurement: A
+    voltage:
+      id: ${devicename}_voltage
+      name: ${upper_devicename} Voltage
+      icon: mdi:flash-circle
+      unit_of_measurement: V
+    power:
+      id: ${devicename}_wattage
+      name: ${upper_devicename} Wattage
+      icon: mdi:flash-outline
+      unit_of_measurement: W
+    change_mode_every: 8
+    update_interval: 10s
+
+  - platform: total_daily_energy
+    id: ${devicename}_total_daily_energy
+    name: ${upper_devicename} Total Daily Energy
+    icon: mdi:circle-slice-3
+    power_id: ${devicename}_wattage
+    filters:
+      # Multiplication factor from W to kW is 0.001
+      - multiply: 0.001
+    unit_of_measurement: kWh

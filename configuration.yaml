@@ -154,12 +154,6 @@ media_player:
       data:
         mac: !secret webos_tv_lm6300pla_mac
 
-tuya:
-  username: !secret tuya_username
-  password: !secret tuya_password
-  country_code: !secret tuya_country_code
-  platform: smart_life
-
 wake_on_lan:
 
 group: !include groups.yaml
