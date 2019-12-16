@@ -16,6 +16,7 @@ This repository has complementary articles to follow all the progress in:
 | Protect your private info with secrets.yaml | [🔗](https://www.danielmartingonzalez.com/protege-tu-informacion-privada-con-secrets-yaml/) | [🔗](https://www.danielmartingonzalez.com/protect-your-private-info-with-secrets-yaml/) |
 | Home Assistant notifications on Telegram | [🔗](https://www.danielmartingonzalez.com/notificaciones-de-home-assistant-en-telegram/) | [🔗](https://www.danielmartingonzalez.com/home-assistant-notifications-on-telegram/) |
 | The meta-component Default Config | [🔗](https://www.danielmartingonzalez.com/el-meta-componente-default-config/) | [🔗](https://www.danielmartingonzalez.com/the-meta-component-default-config/) |
+| Improve the look and feel of Home Assistant | [🔗](https://www.danielmartingonzalez.com/mejorar-aspecto-de-home-assistant/) | [🔗](https://www.danielmartingonzalez.com/improve-the-look-and-feel-of-home-assistant/) |
   
 Make sure to check it out.
 
@@ -58,4 +59,8 @@ Here are some screenshots of my [Lovelace Dashboard](https://www.home-assistant.
 
 ![Dashboard Home Tab](/docs/images/screenshot_view_00.jpg)
 
-![Dashboard System Tab](/docs/images/screenshot_view_01.jpg)
+![Dashboard Ground Floor Tab](/docs/images/screenshot_view_01.jpg)
+
+![Dashboard First Floor Tab](/docs/images/screenshot_view_02.jpg)
+
+![Dashboard System Tab](/docs/images/screenshot_view_03.jpg)
