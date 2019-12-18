@@ -81,6 +81,7 @@ sensor:
     round_digits: 1
     entity_ids:
       - sensor.esp32_01_temperature
+      - sensor.esp32_cam_01_temperature
   - platform: min_max
     name: First Floor Mean Temperature
     type: mean

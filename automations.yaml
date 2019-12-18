@@ -1,5 +1,6 @@
-- id: change_theme_on_sun_horizon
-  alias: Change theme ON sun horizon
+- id: change_theme
+  alias: Change theme
+  description: Change between light and dark theme when sunset, sunrise or the server starts
   trigger:
     - platform: homeassistant
       event: start
@@ -26,3 +27,15 @@
     service: telegram_bot.send_message
     data:
       message: 'Por favor, riega la orquídea cuanto antes.'
+- id: turn_on_off_garage_blanket
+  alias: Turn on/off Garage Blanket
+  description: 'Turn on/off Blitzwolf SHP2 (01) when ESP32 (02) Temperature round 18 degrees'
+  trigger:
+  - event_data:
+      entity_id: sensor.esp32_02_temperature
+    event_type: state_changed
+    platform: event
+  action:
+  - service_template: "homeassistant.turn_{{ 'on' if states.sensor.esp32_02_temperature.state | int < 18 else 'off' }}"
+    data:
+      entity_id: switch.blitzwolf_shp2_01_switch

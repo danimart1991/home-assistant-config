@@ -130,8 +130,9 @@ views:
       - type: entities
         title: Automations
         entities:          
-          - automation.change_theme_on_sun_horizon
+          - automation.change_theme
           - automation.telegram_send_message_on_mijia_flora_01_moisture_is_low
+          - automation.turn_on_off_garage_blanket
       - type: glance
         title: Status
         columns: 3
