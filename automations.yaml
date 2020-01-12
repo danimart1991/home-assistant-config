@@ -17,6 +17,7 @@
           {% else %}
             clear-dark
           {% endif %}
+
 - id: telegram_send_message_on_xiaomi_mijia_flora_01_moisture_is_low
   alias: 'Telegram send message ON mijia flora 01 moisture IS low'
   trigger:
@@ -27,6 +28,7 @@
     service: telegram_bot.send_message
     data:
       message: 'Por favor, riega la orquídea cuanto antes.'
+
 - id: turn_on_off_garage_blanket
   alias: Turn on/off Garage Blanket
   description: 'Turn on/off Blitzwolf SHP2 (01) when ESP32 (02) Temperature round 18 degrees'
@@ -39,3 +41,22 @@
   - service_template: "homeassistant.turn_{{ 'on' if states.sensor.esp32_02_temperature.state | int < 18 else 'off' }}"
     data:
       entity_id: switch.blitzwolf_shp2_01_switch
+
+- id: turn_on_the_heating_at_morning
+  alias: Turn on the heating at morning
+  description: Set target temperature to home ON 05:30:00 IF automatic heating
+    is enabled
+  trigger:
+  - at: 05:30:00
+    platform: time
+  condition:
+  - condition: state
+    entity_id: climate.home_thermostat
+    state: heat
+  action:
+  - service: climate.set_temperature
+    data:
+      entity_id: climate.home_thermostat
+      hvac_mode: heat
+      temperature: 22
+    

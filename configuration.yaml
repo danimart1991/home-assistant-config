@@ -102,26 +102,23 @@ climate:
     name: Home Thermostat
     heater: switch.boiler_heating
     target_sensor: sensor.home_mean_temperature
-    ac_mode: false
     initial_hvac_mode: "off"
-    away_temp: 16
-    target_temp: 20
+    away_temp: 19
+    target_temp: 22
   - platform: generic_thermostat
     name: Ground Floor Thermostat
     heater: switch.boiler_heating
     target_sensor: sensor.ground_floor_mean_temperature
-    ac_mode: false
     initial_hvac_mode: "off"
-    away_temp: 16
-    target_temp: 20
+    away_temp: 19
+    target_temp: 22
   - platform: generic_thermostat
     name: First Floor Thermostat
     heater: switch.boiler_heating
     target_sensor: sensor.first_floor_mean_temperature
-    ac_mode: false
     initial_hvac_mode: "off"
-    away_temp: 16
-    target_temp: 20
+    away_temp: 19
+    target_temp: 22
 
 plant:
   # Orchidaceae, Phalaenopsis

@@ -133,6 +133,7 @@ views:
           - automation.change_theme
           - automation.telegram_send_message_on_mijia_flora_01_moisture_is_low
           - automation.turn_on_off_garage_blanket
+          - automation.turn_on_the_heating_at_morning
       - type: glance
         title: Status
         columns: 3
