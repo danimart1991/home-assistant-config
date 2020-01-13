@@ -17,6 +17,7 @@ This repository has complementary articles to follow all the progress in:
 | Home Assistant notifications on Telegram | [🔗](https://www.danielmartingonzalez.com/notificaciones-de-home-assistant-en-telegram/) | [🔗](https://www.danielmartingonzalez.com/home-assistant-notifications-on-telegram/) |
 | The meta-component Default Config | [🔗](https://www.danielmartingonzalez.com/el-meta-componente-default-config/) | [🔗](https://www.danielmartingonzalez.com/the-meta-component-default-config/) |
 | Improve the look and feel of Home Assistant | [🔗](https://www.danielmartingonzalez.com/mejorar-aspecto-de-home-assistant/) | [🔗](https://www.danielmartingonzalez.com/improve-the-look-and-feel-of-home-assistant/) |
+| Home Assistant configuration in YAML | [🔗](https://www.danielmartingonzalez.com/configuracion-de-home-assistant-en-yaml/) | [🔗](https://www.danielmartingonzalez.com/home-assistant-configuration-in-yaml/) |
   
 Make sure to check it out.
 
