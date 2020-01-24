@@ -18,6 +18,7 @@ This repository has complementary articles to follow all the progress in:
 | The meta-component Default Config | [🔗](https://www.danielmartingonzalez.com/el-meta-componente-default-config/) | [🔗](https://www.danielmartingonzalez.com/the-meta-component-default-config/) |
 | Improve the look and feel of Home Assistant | [🔗](https://www.danielmartingonzalez.com/mejorar-aspecto-de-home-assistant/) | [🔗](https://www.danielmartingonzalez.com/improve-the-look-and-feel-of-home-assistant/) |
 | Home Assistant configuration in YAML | [🔗](https://www.danielmartingonzalez.com/configuracion-de-home-assistant-en-yaml/) | [🔗](https://www.danielmartingonzalez.com/home-assistant-configuration-in-yaml/) |
+| Images for people in Home Assistant | [🔗](https://www.danielmartingonzalez.com/imagenes-para-personas-en-home-assistant/) | [🔗](https://www.danielmartingonzalez.com/images-for-people-in-home-assistant/) |
   
 Make sure to check it out.
 
