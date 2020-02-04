@@ -1,8 +1,8 @@
 homeassistant:
   name: Home
-  latitude: !secret homeassistant_latitude
-  longitude: !secret homeassistant_longitude
-  elevation: !secret homeassistant_elevation
+  latitude: !secret zones_home_latitude
+  longitude: !secret zones_home_longitude
+  elevation: !secret zones_home_elevation
   unit_system: metric
   time_zone: Europe/Madrid
   customize: !include customize.yaml
@@ -166,3 +166,4 @@ wake_on_lan:
 group: !include groups.yaml
 automation: !include automations.yaml
 script: !include scripts.yaml
+zone: !include zones.yaml

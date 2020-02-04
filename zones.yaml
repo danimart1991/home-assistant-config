@@ -1,0 +1,29 @@
+- name: Home
+  latitude: !secret zones_home_latitude
+  longitude: !secret zones_home_longitude
+  radius: !secret zones_home_radius
+  icon: mdi:home
+
+- name: Preschool
+  latitude: !secret zones_preschool_latitude
+  longitude: !secret zones_preschool_longitude
+  radius: !secret zones_preschool_radius
+  icon: mdi:baby-bottle
+
+- name: Office
+  latitude: !secret zones_office_latitude
+  longitude: !secret zones_office_longitude
+  radius: !secret zones_office_radius
+  icon: mdi:briefcase
+
+- name: School
+  latitude: !secret zones_school_latitude
+  longitude: !secret zones_school_longitude
+  radius: !secret zones_school_radius
+  icon: mdi:school
+
+- name: Work
+  latitude: !secret zones_work_latitude
+  longitude: !secret zones_work_longitude
+  radius: !secret zones_work_radius
+  icon: mdi:briefcase
