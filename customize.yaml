@@ -7,3 +7,7 @@ sensor.ground_floor_mean_temperature:
 sensor.first_floor_mean_temperature:
   device_class: temperature
   icon: mdi:thermometer
+person.dani:
+  icon: mdi:face
+person.eva:
+  icon: mdi:face-woman

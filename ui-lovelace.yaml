@@ -6,6 +6,7 @@ views:
     path: home
     badges:
       - person.dani
+      - person.eva
       - sensor.home_mean_temperature
       - switch.boiler_heating
     cards:
@@ -19,6 +20,7 @@ views:
     path: ground_floor
     badges:
       - person.dani
+      - person.eva
       - sensor.ground_floor_mean_temperature
       - switch.boiler_heating
     cards:
@@ -58,6 +60,7 @@ views:
     path: first_floor
     badges:
       - person.dani
+      - person.eva
       - sensor.first_floor_mean_temperature
       - switch.boiler_heating
     cards:
@@ -99,6 +102,7 @@ views:
     path: second_floor
     badges:
       - person.dani
+      - person.eva
       - switch.boiler_heating
     cards:
   - id: 4
@@ -107,6 +111,7 @@ views:
     path: system
     badges:
       - person.dani
+      - person.eva
       - switch.boiler_heating
     cards:
       - cards:
