@@ -101,7 +101,7 @@ person:
     id: dani
     user_id: 68fa5522b25e4f719fdfe20a398f508e
     device_trackers:
-      []
+      - device_tracker.oneplus_a5000
   - name: Eva
     id: eva
     user_id: 66cf8d255d2245499b7130c3c4c25890
