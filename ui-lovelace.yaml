@@ -28,7 +28,6 @@ views:
         entity: climate.ground_floor_thermostat
       - type: glance
         title: Living Room
-        show_name: false
         entities:
           - entity: sensor.esp32_01_temperature
             name: Temperature
@@ -50,7 +49,6 @@ views:
             name: Humidity      
       - type: glance
         title: Landing
-        show_name: false
         entities:
           - entity: camera.rpi0w_meye_20f5d0f5
             name: Camera
@@ -68,7 +66,6 @@ views:
         entity: climate.first_floor_thermostat
       - type: glance
         title: Kid's Room
-        show_name: false
         entities:
           - entity: sensor.esp32_03_temperature
             name: Temperature
@@ -76,7 +73,6 @@ views:
             name: Humidity
       - type: glance
         title: Master Bedroom
-        show_name: false
         entities:
           - entity: sensor.esp8266_02_temperature
             name: Temperature
@@ -86,7 +82,6 @@ views:
             name: Television
       - type: glance
         title: Play Room
-        show_name: false
         entities:
           - entity: sensor.esp32_cam_01_temperature
             name: Temperature
@@ -159,9 +154,14 @@ views:
           - entity: binary_sensor.boiler_status
             name: Boiler
           - entity: binary_sensor.blitzwolf_shp2_01_status
-            name: Blitzwolf SHP2 (01)
+            name: 'BlitzWolf BW-SHP2'
       - type: glance
         title: Batteries
         show_header_toggle: false
         entities:
-          - sensor.xiaomi_mijia_flora_01_battery_level
+          - name: Xiaomi Mijia Flora
+            entity: sensor.xiaomi_mijia_flora_01_battery_level
+          - name: 'iPhone X'
+            entity: sensor.iphone_x_battery_level
+          - name: 'OnePlus 5'
+            entity: sensor.oneplus_a5000_battery_level
