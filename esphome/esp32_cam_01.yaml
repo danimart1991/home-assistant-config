@@ -19,6 +19,7 @@ wifi:
 <<: !include common/api.yaml
 <<: !include common/ota.yaml
 <<: !include common/logger.yaml
+<<: !include common/web_server.yaml
 
 i2c:
   - sda: GPIO13

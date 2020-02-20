@@ -25,6 +25,7 @@ time:
 <<: !include common/api.yaml
 <<: !include common/ota.yaml
 <<: !include common/logger.yaml
+<<: !include common/web_server.yaml
     
 binary_sensor:
   - platform: gpio
