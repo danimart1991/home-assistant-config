@@ -6,6 +6,9 @@
 !docs
 !docs/images
 !esphome
+!esphome/common
+!esphome/common/binary_sensor
+!esphome/common/sensor
 !themes
 !www
 !www/themes/*
@@ -22,7 +25,7 @@
 .google.token
 
 # Ensure these YAML files are ignored, otherwise your secret data/credentials will leak.
-ip_bans.yaml
-secrets.yaml
-known_devices.yaml
-esphome/secrets.yaml
+/ip_bans.yaml
+/secrets.yaml
+/known_devices.yaml
+/esphome/secrets.yaml

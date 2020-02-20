@@ -22,13 +22,9 @@ time:
   - platform: homeassistant
     id: homeassistant_time
 
-api:
-  password: !secret base_api_password
-
-ota:
-  password: !secret base_ota_password
-
-logger:
+<<: !include common/api.yaml
+<<: !include common/ota.yaml
+<<: !include common/logger.yaml
     
 binary_sensor:
   - platform: gpio
@@ -40,9 +36,7 @@ binary_sensor:
       inverted: True
     on_press:
       - switch.toggle: ${devicename}_switch
-  - platform: status
-    name: ${upper_devicename} Status
-    id: ${devicename}_status
+  - !include common/binary_sensor/status.yaml
 
 switch:
   - platform: gpio
