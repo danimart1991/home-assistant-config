@@ -13,16 +13,12 @@ wifi:
   password: !secret base_wifi_password
   manual_ip:
     static_ip: !secret boiler_wifi_manual_ip_static_ip
-    gateway: !secret boiler_wifi_manual_ip_gateway
-    subnet: !secret boiler_wifi_manual_ip_subnet
+    gateway: !secret base_wifi_manual_ip_gateway
+    subnet: !secret base_wifi_manual_ip_subnet
 
-logger:
-
-api:
-  password: !secret boiler_api_password
-
-ota:
-  password: !secret boiler_ota_password
+<<: !include common/api.yaml
+<<: !include common/ota.yaml
+<<: !include common/logger.yaml
 
 binary_sensor:
   - platform: gpio
@@ -34,9 +30,7 @@ binary_sensor:
     internal: True
     on_press:
       - switch.toggle: ${devicename}_heating
-  - platform: status
-    name: ${upper_devicename} Status
-    id: ${devicename}_status  
+  - !include common/binary_sensor/status.yaml 
 
 status_led:
   pin:
