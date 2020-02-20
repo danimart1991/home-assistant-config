@@ -36,17 +36,41 @@ views:
           - plant.orchid
           - entity: media_player.webos_tv_lf652v
             name: Television
-      - type: glance
+      - type: entities
         title: Garage
+        show_header_toggle: false
         entities:
-          - entity: switch.blitzwolf_shp2_01_switch
-            name: Blanket
-          - entity: camera.camera_sp009
-            name: Camera
           - entity: sensor.esp32_02_temperature
             name: Temperature
           - entity: sensor.esp32_02_humidity
-            name: Humidity      
+            name: Humidity
+          - entity: camera.camera_sp009
+            name: Camera
+          - type: section
+            label: "Animal's Blanket"
+          - entity: automation.turn_on_off_garage_blanket
+            name: "Automatic Mode"
+          - type: conditional
+            conditions:
+              - entity: automation.turn_on_off_garage_blanket
+                state: "off"
+            row:
+              entity: switch.blitzwolf_shp2_01_switch
+              name: "Switch"
+          - type: conditional
+            conditions:
+              - entity: automation.turn_on_off_garage_blanket
+                state: "on"
+            row:
+              entity: binary_sensor.blitzwolf_bw_shp2_switch_readonly
+              name: "Switch"
+          - type: conditional
+            conditions:
+              - entity: automation.turn_on_off_garage_blanket
+                state: "on"
+            row:
+              entity: input_number.blitzwolf_bw_shp2_temperature_limit
+              name: "Temperature Limit"
       - type: glance
         title: Landing
         entities:

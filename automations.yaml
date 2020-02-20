@@ -30,17 +30,20 @@
       message: 'Por favor, riega la orquídea cuanto antes.'
 
 - id: turn_on_off_garage_blanket
-  alias: Turn on/off Garage Blanket
-  description: 'Turn on/off Blitzwolf SHP2 (01) when ESP32 (02) Temperature round 18 degrees'
+  alias: "Turn on/off Garage Blanket"
+  description: "Turn on/off Blitzwolf BW SHP2 when ESP32 (02) Temperature round Temperature Limit"
   trigger:
-  - event_data:
-      entity_id: sensor.esp32_02_temperature
-    event_type: state_changed
-    platform: event
+    - event_data:
+        entity_id: sensor.esp32_02_temperature
+      event_type: state_changed
+      platform: event
+  condition:
+    - condition: template
+      value_template: "{{ states('binary_sensor.blitzwolf_bw_shp2_switch_readonly') != 'on' if states('sensor.esp32_02_temperature') | int < states('input_number.blitzwolf_bw_shp2_temperature_limit') | int else 'off' }}"
   action:
-  - service_template: "homeassistant.turn_{{ 'on' if states.sensor.esp32_02_temperature.state | int < 18 else 'off' }}"
-    data:
-      entity_id: switch.blitzwolf_shp2_01_switch
+    - service_template: "homeassistant.turn_{{ 'on' if states('sensor.esp32_02_temperature') | int < states('input_number.blitzwolf_bw_shp2_temperature_limit') | int else 'off' }}"
+      data:
+        entity_id: switch.blitzwolf_shp2_01_switch
 
 - id: turn_on_the_heating_at_morning
   alias: Turn on the heating at morning
