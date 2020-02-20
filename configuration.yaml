@@ -7,6 +7,25 @@ homeassistant:
   time_zone: Europe/Madrid
   customize: !include customize.yaml
 
+binary_sensor:
+  - platform: template
+    sensors:
+      blitzwolf_bw_shp2_switch_readonly:
+        friendly_name: "BlitzWolf BW SHP2 Switch ReadOnly"
+        value_template: "{{ is_state('switch.blitzwolf_shp2_01_switch', 'on') }}"
+        availability_template: "{{ is_state('binary_sensor.blitzwolf_shp2_01_status', 'on') }}"
+        icon_template: mdi:flash
+input_number:
+  blitzwolf_bw_shp2_temperature_limit:
+    name: "BlitzWolf BW SHP2 Temperature Limit"
+    initial: 18
+    min: 0
+    max: 36
+    step: 1
+    mode: slider
+    unit_of_measurement: °C
+    icon: mdi:thermometer      
+
 camera:
   - platform: ffmpeg
     name: Camera SP009
