@@ -1,25 +1,22 @@
 - id: change_theme
-  alias: Change theme
-  description: Change between light and dark theme when sunset, sunrise or the server starts
+  alias: "Change theme"
+  description: "Change between light and dark theme when sunset or sunrise or the server starts"
   trigger:
     - platform: homeassistant
       event: start
-    - platform: sun
-      event: sunset
-    - platform: sun  
-      event: sunrise
+    - platform: state
+      entity_id: sun.sun
+      to: "above_horizon"
+    - platform: state
+      entity_id: sun.sun
+      to: "below_horizon" 
   action:
     - service: frontend.set_theme
       data_template:
-        name: >
-          {% if states.sun.sun.state == "above_horizon" %}
-            clear
-          {% else %}
-            clear-dark
-          {% endif %}
+        name: "{{ 'clear' if is_state('sun.sun', 'above_horizon') else 'clear-dark' }}"
 
 - id: telegram_send_message_on_xiaomi_mijia_flora_01_moisture_is_low
-  alias: 'Telegram send message ON mijia flora 01 moisture IS low'
+  alias: "Telegram send message ON mijia flora 01 moisture IS low"
   trigger:
     platform: numeric_state
     entity_id: sensor.xiaomi_mijia_flora_01_moisture
@@ -27,7 +24,7 @@
   action:
     service: telegram_bot.send_message
     data:
-      message: 'Por favor, riega la orquídea cuanto antes.'
+      message: "Por favor, riega la orquídea cuanto antes."
 
 - id: turn_on_off_garage_blanket
   alias: "Turn on/off Garage Blanket"
@@ -39,27 +36,25 @@
       platform: event
   condition:
     - condition: template
-      value_template: "{{ states('binary_sensor.blitzwolf_bw_shp2_switch_readonly') != 'on' if states('sensor.esp32_02_temperature') | int < states('input_number.blitzwolf_bw_shp2_temperature_limit') | int else 'off' }}"
+      value_template: "{{ states('binary_sensor.blitzwolf_bw_shp2_switch_readonly') != ('on' if states('sensor.esp32_02_temperature') | int < states('input_number.blitzwolf_bw_shp2_temperature_limit') | int else 'off') }}"
   action:
     - service_template: "homeassistant.turn_{{ 'on' if states('sensor.esp32_02_temperature') | int < states('input_number.blitzwolf_bw_shp2_temperature_limit') | int else 'off' }}"
       data:
         entity_id: switch.blitzwolf_shp2_01_switch
 
 - id: turn_on_the_heating_at_morning
-  alias: Turn on the heating at morning
-  description: Set target temperature to home ON 05:30:00 IF automatic heating
-    is enabled
+  alias: "Turn on the heating at morning"
+  description: "Set target temperature to home ON 05:30:00 IF automatic heating is enabled"
   trigger:
-  - at: 05:30:00
-    platform: time
+    - platform: time
+      at: 05:30:00      
   condition:
-  - condition: state
-    entity_id: climate.home_thermostat
-    state: heat
-  action:
-  - service: climate.set_temperature
-    data:
+    - condition: state
       entity_id: climate.home_thermostat
-      hvac_mode: heat
-      temperature: 22
-    
+      state: heat
+  action:
+    - service: climate.set_temperature
+      data:
+        entity_id: climate.home_thermostat
+        hvac_mode: heat
+        temperature: 22    
