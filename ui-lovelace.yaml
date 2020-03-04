@@ -91,9 +91,9 @@ views:
       - type: glance
         title: Kid's Room
         entities:
-          - entity: sensor.esp32_03_temperature
+          - entity: sensor.esp8266_01_temperature
             name: Temperature
-          - entity: sensor.esp32_03_humidity
+          - entity: sensor.esp8266_01_humidity
             name: Humidity
       - type: glance
         title: Master Bedroom

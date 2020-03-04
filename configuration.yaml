@@ -110,8 +110,8 @@ sensor:
     type: mean
     round_digits: 1
     entity_ids:
-      - sensor.esp32_03_temperature
-      - sensor.esp8266_02_temperature      
+      - sensor.esp8266_01_temperature
+      - sensor.esp8266_02_temperature
       - sensor.esp32_cam_01_temperature
 
 person:
