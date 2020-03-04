@@ -11,6 +11,7 @@
 !esphome/common/sensor
 !themes
 !www
+!www/webostv-remote-card.js
 !www/themes/*
 !*.yaml
 !*.HA_VERSION

@@ -1,4 +1,7 @@
 title: Home
+resources:
+  - url: /local/webostv-remote-card.js
+    type: js
 views:
   - id: 0
     icon: mdi:home
@@ -124,6 +127,10 @@ views:
       - person.eva
       - switch.boiler_heating
     cards:
+      - type: media-control
+        entity: media_player.webos_tv_lm6300pla
+      - type: "custom:webostv-remote-card"
+        entity: media_player.webos_tv_lm6300pla
   - id: 4
     icon: mdi:engine
     name: System
