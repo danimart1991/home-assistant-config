@@ -1,0 +1,36 @@
+automation:
+  - id: turn_on_off_garage_blanket
+    alias: "Automatically Turn on/off Garage Blanket"
+    description: "Turn on/off Blitzwolf BW SHP2 when ESP32 (02) Temperature round Temperature Limit"
+    trigger:
+      - event_data:
+          entity_id: sensor.esp32_02_temperature
+        event_type: state_changed
+        platform: event
+    condition:
+      - condition: template
+        value_template: "{{ states('binary_sensor.blitzwolf_bw_shp2_switch_status') != ('on' if states('sensor.esp32_02_temperature') | int < states('input_number.blitzwolf_bw_shp2_temperature_limit') | int else 'off') }}"
+    action:
+      - service_template: "homeassistant.turn_{{ 'on' if states('sensor.esp32_02_temperature') | int < states('input_number.blitzwolf_bw_shp2_temperature_limit') | int else 'off' }}"
+        data:
+          entity_id: switch.blitzwolf_shp2_01_switch
+
+binary_sensor:
+  - platform: template
+    sensors:
+      blitzwolf_bw_shp2_switch_status:
+        friendly_name: "Animal's Blanket Switch Status"
+        value_template: "{{ is_state('switch.blitzwolf_shp2_01_switch', 'on') }}"
+        availability_template: "{{ is_state('binary_sensor.blitzwolf_shp2_01_status', 'on') }}"
+        icon_template: mdi:flash
+
+input_number:
+  blitzwolf_bw_shp2_temperature_limit:
+    name: "Animal's Blanket Automation Temperature Limit"
+    initial: 18
+    min: 0
+    max: 36
+    step: 1
+    mode: slider
+    unit_of_measurement: °C
+    icon: mdi:thermometer

@@ -1,0 +1,16 @@
+sensor:
+  - platform: systemmonitor
+    resources:
+      - type: disk_use_percent
+        arg: /
+      - type: memory_use_percent
+      - type: processor_use
+      - type: last_boot
+
+speedtestdotnet:
+  scan_interval:
+    minutes: 30
+  monitored_conditions:
+    - ping
+    - download
+    - upload

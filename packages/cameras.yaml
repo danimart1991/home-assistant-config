@@ -1,0 +1,11 @@
+camera:
+  - platform: ffmpeg
+    name: "Camera SP009"
+    input: !secret camera_sp009_input
+    extra_arguments: -an
+  - platform: mjpeg
+    name: "RPi0W meye-20f5d0f5"
+    mjpeg_url: !secret camera_rpi0w_meye-20f5d0f5_url
+    username: !secret camera_rpi0w_meye-20f5d0f5_user
+    password: !secret camera_rpi0w_meye-20f5d0f5_password
+    authentication: basic

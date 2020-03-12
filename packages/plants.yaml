@@ -1,0 +1,19 @@
+plant:
+  # Orchidaceae, Phalaenopsis
+  orchid:
+    sensors:
+      moisture: sensor.xiaomi_mijia_flora_01_moisture
+      battery: sensor.xiaomi_mijia_flora_01_battery_level
+      temperature: sensor.xiaomi_mijia_flora_01_temperature
+      conductivity: sensor.xiaomi_mijia_flora_01_soil_conductivity
+      brightness: sensor.xiaomi_mijia_flora_01_brightness
+    min_moisture: 15
+    max_moisture: 65
+    min_battery: 20
+    min_conductivity: 350
+    max_conductivity: 2000
+    min_temperature: 15
+    max_temperature: 32
+    min_brightness: 2000
+    max_brightness: 30000
+    check_days: 3

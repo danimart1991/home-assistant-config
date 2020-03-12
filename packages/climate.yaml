@@ -1,0 +1,80 @@
+homeassistant:
+  customize:
+    sensor.home_floor_mean_temperature:
+      device_class: temperature
+      icon: mdi:thermometer
+    sensor.ground_floor_mean_temperature:
+      device_class: temperature
+      icon: mdi:thermometer
+    sensor.first_floor_mean_temperature:
+      device_class: temperature
+      icon: mdi:thermometer
+
+automation:
+  - id: turn_on_the_heating_at_morning
+    alias: "Turn on the heating at morning"
+    description: "Set target temperature to home ON 05:30:00 IF automatic heating is enabled"
+    trigger:
+      - platform: time
+        at: 05:30:00
+    condition:
+      - condition: state
+        entity_id: climate.home_thermostat
+        state: heat
+    action:
+      - service: climate.set_temperature
+        data:
+          entity_id: climate.home_thermostat
+          hvac_mode: heat
+          temperature: 22
+
+climate:
+  - platform: generic_thermostat
+    name: "Home Thermostat"
+    heater: switch.boiler_heating
+    target_sensor: sensor.home_mean_temperature
+    initial_hvac_mode: "off"
+    away_temp: 19
+    target_temp: 22
+  - platform: generic_thermostat
+    name: "Ground Floor Thermostat"
+    heater: switch.boiler_heating
+    target_sensor: sensor.ground_floor_mean_temperature
+    initial_hvac_mode: "off"
+    away_temp: 19
+    target_temp: 22
+  - platform: generic_thermostat
+    name: "First Floor Thermostat"
+    heater: switch.boiler_heating
+    target_sensor: sensor.first_floor_mean_temperature
+    initial_hvac_mode: "off"
+    away_temp: 19
+    target_temp: 22
+
+sensor:
+  - platform: min_max
+    name: "Home Mean Temperature"
+    type: mean
+    round_digits: 1
+    entity_ids:
+      - sensor.ground_floor_mean_temperature
+      - sensor.first_floor_mean_temperature
+  - platform: min_max
+    name: "Ground Floor Mean Temperature"
+    type: mean
+    round_digits: 1
+    entity_ids:
+      - sensor.esp32_01_temperature
+  - platform: min_max
+    name: "First Floor Mean Temperature"
+    type: mean
+    round_digits: 1
+    entity_ids:
+      - sensor.esp8266_01_temperature
+      - sensor.esp8266_02_temperature
+      - sensor.esp32_cam_01_temperature
+
+weather:
+  - platform: openweathermap
+    name: "Outside House"
+    api_key: !secret weather_openweathermap_api_key

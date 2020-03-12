@@ -1,4 +1,4 @@
-title: Home
+title: "Home"
 views:
   - id: 0
     icon: mdi:home
@@ -13,7 +13,7 @@ views:
       - type: thermostat
         entity: climate.home_thermostat
       - type: weather-forecast
-        entity: weather.home
+        entity: weather.outside_house
   - id: 1
     icon: mdi:home-floor-0
     name: Ground Floor
@@ -27,25 +27,25 @@ views:
       - type: thermostat
         entity: climate.ground_floor_thermostat
       - type: glance
-        title: Living Room
+        title: "Living Room"
         entities:
           - entity: sensor.esp32_01_temperature
-            name: Temperature
+            name: "Temperature"
           - entity: sensor.esp32_01_humidity
-            name: Humidity
+            name: "Humidity"
           - plant.orchid
           - entity: media_player.webos_tv_lf652v
-            name: Television
+            name: "Television"
       - type: entities
-        title: Garage
+        title: "Garage"
         show_header_toggle: false
         entities:
           - entity: sensor.esp32_02_temperature
-            name: Temperature
+            name: "Temperature"
           - entity: sensor.esp32_02_humidity
-            name: Humidity
+            name: "Humidity"
           - entity: camera.camera_sp009
-            name: Camera
+            name: "Camera"
           - type: section
             label: "Animal's Blanket"
           - entity: automation.turn_on_off_garage_blanket
@@ -56,14 +56,14 @@ views:
                 state: "off"
             row:
               entity: switch.blitzwolf_shp2_01_switch
-              name: "Switch"
+              name: "Turn On/Off"
           - type: conditional
             conditions:
               - entity: automation.turn_on_off_garage_blanket
                 state: "on"
             row:
-              entity: binary_sensor.blitzwolf_bw_shp2_switch_readonly
-              name: "Switch"
+              entity: binary_sensor.blitzwolf_bw_shp2_switch_status
+              name: "Switch Status"
           - type: conditional
             conditions:
               - entity: automation.turn_on_off_garage_blanket
@@ -72,13 +72,13 @@ views:
               entity: input_number.blitzwolf_bw_shp2_temperature_limit
               name: "Temperature Limit"
       - type: glance
-        title: Landing
+        title: "Landing"
         entities:
           - entity: camera.rpi0w_meye_20f5d0f5
-            name: Camera
+            name: "Camera"
   - id: 2
     icon: mdi:home-floor-1
-    name: First Floor
+    name: "First Floor"
     path: first_floor
     badges:
       - person.dani
@@ -89,35 +89,35 @@ views:
       - type: thermostat
         entity: climate.first_floor_thermostat
       - type: glance
-        title: Kid's Room
+        title: "Kid's Room"
         entities:
           - entity: sensor.esp8266_01_temperature
-            name: Temperature
+            name: "Temperature"
           - entity: sensor.esp8266_01_humidity
-            name: Humidity
+            name: "Humidity"
       - type: glance
-        title: Master Bedroom
+        title: "Master Bedroom"
         entities:
           - entity: sensor.esp8266_02_temperature
-            name: Temperature
+            name: "Temperature"
           - entity: sensor.esp8266_02_humidity
-            name: Humidity
+            name: "Humidity"
           - entity: media_player.webos_tv_lm6300pla
-            name: Television
+            name: "Television"
       - type: glance
-        title: Play Room
+        title: "Play Room"
         entities:
           - entity: sensor.esp32_cam_01_temperature
-            name: Temperature
+            name: "Temperature"
           - entity: sensor.esp32_cam_01_humidity
-            name: Humidity
+            name: "Humidity"
           - entity: camera.esp32_cam_01_camera
-            name: Camera
+            name: "Camera"
           - entity: light.esp32_cam_01_light
-            name: Camera Light
+            name: "Camera Light"
   - id: 3
     icon: mdi:home-floor-2
-    name: Second Floor
+    name: "Second Floor"
     path: second_floor
     badges:
       - person.dani
@@ -126,7 +126,7 @@ views:
     cards:
   - id: 4
     icon: mdi:engine
-    name: System
+    name: "System"
     path: system
     badges:
       - person.dani
@@ -152,40 +152,40 @@ views:
           - sensor.speedtest_upload
         type: history-graph
       - type: entities
-        title: Automations
+        title: "Automations"
         entities:          
           - automation.change_theme
           - automation.telegram_send_message_on_mijia_flora_01_moisture_is_low
           - automation.turn_on_off_garage_blanket
           - automation.turn_on_the_heating_at_morning
       - type: glance
-        title: Status
+        title: "Status"
         columns: 3
         show_state: false
         entities:
           - entity: binary_sensor.esp32_01_status
-            name: ESP32-01
+            name: "ESP32-01"
           - entity: binary_sensor.esp32_02_status
-            name: ESP32-02
+            name: "ESP32-02"
           - entity: binary_sensor.esp32_03_status
-            name: ESP32-03
+            name: "ESP32-03"
           - entity: binary_sensor.esp32_cam_01_status
-            name: ESP32-CAM-01
+            name: "ESP32-CAM-01"
           - entity: binary_sensor.esp8266_01_status
-            name: ESP8266-01
+            name: "ESP8266-01"
           - entity: binary_sensor.esp8266_02_status
-            name: ESP8266-02
+            name: "ESP8266-02"
           - entity: binary_sensor.boiler_status
-            name: Boiler
+            name: "Boiler"
           - entity: binary_sensor.blitzwolf_shp2_01_status
-            name: 'BlitzWolf BW-SHP2'
+            name: "BlitzWolf BW-SHP2"
       - type: glance
-        title: Batteries
+        title: "Batteries"
         show_header_toggle: false
         entities:
-          - name: Xiaomi Mijia Flora
+          - name: "Xiaomi Mijia Flora"
             entity: sensor.xiaomi_mijia_flora_01_battery_level
-          - name: 'iPhone X'
+          - name: "iPhone X"
             entity: sensor.iphone_x_battery_level
-          - name: 'OnePlus 5'
+          - name: "OnePlus 5"
             entity: sensor.oneplus_a5000_battery_level

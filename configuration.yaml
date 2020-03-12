@@ -1,187 +1,25 @@
 homeassistant:
-  name: Home
+  name: "Home"
   latitude: !secret zones_home_latitude
   longitude: !secret zones_home_longitude
   elevation: !secret zones_home_elevation
   unit_system: metric
-  time_zone: Europe/Madrid
-  customize: !include customize.yaml
-
-binary_sensor:
-  - platform: template
-    sensors:
-      blitzwolf_bw_shp2_switch_readonly:
-        friendly_name: "BlitzWolf BW SHP2 Switch ReadOnly"
-        value_template: "{{ is_state('switch.blitzwolf_shp2_01_switch', 'on') }}"
-        availability_template: "{{ is_state('binary_sensor.blitzwolf_shp2_01_status', 'on') }}"
-        icon_template: mdi:flash
-input_number:
-  blitzwolf_bw_shp2_temperature_limit:
-    name: "BlitzWolf BW SHP2 Temperature Limit"
-    initial: 18
-    min: 0
-    max: 36
-    step: 1
-    mode: slider
-    unit_of_measurement: °C
-    icon: mdi:thermometer
-
-camera:
-  - platform: ffmpeg
-    name: Camera SP009
-    input: !secret camera_sp009_input
-    extra_arguments: -an
-  - platform: mjpeg
-    name: RPi0W meye-20f5d0f5
-    mjpeg_url: !secret camera_rpi0w_meye-20f5d0f5_url
-    username: !secret camera_rpi0w_meye-20f5d0f5_user
-    password: !secret camera_rpi0w_meye-20f5d0f5_password
-    authentication: basic
+  time_zone: "Europe/Madrid"
+  packages: !include_dir_named packages
 
 config:
-
 ffmpeg:
-
-frontend:
-  themes: !include_dir_merge_named themes/
-
 history:
-
-logbook:
-
-map:
-
-mobile_app:
-
-sun:
-
-system_health:
 
 http:
   base_url: !secret http_base_url
   ssl_certificate: /ssl/fullchain.pem
   ssl_key: /ssl/privkey.pem
 
-lovelace:
-  mode: yaml
-
-weather:
-  - platform: openweathermap
-    name: home
-    api_key: !secret weather_openweathermap_api_key
-
-telegram_bot:
-  - platform: polling
-    api_key: !secret telegram_bot_api_key
-    allowed_chat_ids:
-      - !secret telegram_bot_chat_id
-
-speedtestdotnet:
-  scan_interval:
-    minutes: 30
-  monitored_conditions:
-    - ping
-    - download
-    - upload
-
-sensor:
-  - platform: systemmonitor
-    resources:
-      - type: disk_use_percent
-        arg: /
-      - type: memory_use_percent
-      - type: processor_use
-      - type: last_boot
-  - platform: min_max
-    name: Home Mean Temperature
-    type: mean
-    round_digits: 1
-    entity_ids:
-      - sensor.ground_floor_mean_temperature
-      - sensor.first_floor_mean_temperature
-  - platform: min_max
-    name: Ground Floor Mean Temperature
-    type: mean
-    round_digits: 1
-    entity_ids:
-      - sensor.esp32_01_temperature
-  - platform: min_max
-    name: First Floor Mean Temperature
-    type: mean
-    round_digits: 1
-    entity_ids:
-      - sensor.esp8266_01_temperature
-      - sensor.esp8266_02_temperature
-      - sensor.esp32_cam_01_temperature
-
-person:
-  - name: Dani
-    id: dani
-    user_id: 68fa5522b25e4f719fdfe20a398f508e
-    device_trackers:
-      - device_tracker.oneplus_a5000
-  - name: Eva
-    id: eva
-    user_id: 66cf8d255d2245499b7130c3c4c25890
-    device_trackers:
-      - device_tracker.iphone_x
-
-climate:
-  - platform: generic_thermostat
-    name: Home Thermostat
-    heater: switch.boiler_heating
-    target_sensor: sensor.home_mean_temperature
-    initial_hvac_mode: "off"
-    away_temp: 19
-    target_temp: 22
-  - platform: generic_thermostat
-    name: Ground Floor Thermostat
-    heater: switch.boiler_heating
-    target_sensor: sensor.ground_floor_mean_temperature
-    initial_hvac_mode: "off"
-    away_temp: 19
-    target_temp: 22
-  - platform: generic_thermostat
-    name: First Floor Thermostat
-    heater: switch.boiler_heating
-    target_sensor: sensor.first_floor_mean_temperature
-    initial_hvac_mode: "off"
-    away_temp: 19
-    target_temp: 22
-
-plant:
-  # Orchidaceae, Phalaenopsis
-  orchid:
-    sensors:
-      moisture: sensor.xiaomi_mijia_flora_01_moisture
-      battery: sensor.xiaomi_mijia_flora_01_battery_level
-      temperature: sensor.xiaomi_mijia_flora_01_temperature
-      conductivity: sensor.xiaomi_mijia_flora_01_soil_conductivity
-      brightness: sensor.xiaomi_mijia_flora_01_brightness
-    min_moisture: 15
-    max_moisture: 65
-    min_battery: 20
-    min_conductivity: 350
-    max_conductivity: 2000
-    min_temperature: 15
-    max_temperature: 32
-    min_brightness: 2000
-    max_brightness: 30000
-    check_days: 3
-
-webostv:
-  - host: !secret webos_tv_lf652v_host
-    name: webOS TV LF652V
-  - host: !secret webos_tv_lm6300pla_host
-    name: webOS TV LM6300PLA
-    turn_on_action:
-      service: wake_on_lan.send_magic_packet
-      data:
-        mac: !secret webos_tv_lm6300pla_mac
-
+logbook:
+map:
+mobile_app:
+sun:
+system_health:
 wake_on_lan:
-
-group: !include groups.yaml
-automation: !include automations.yaml
-script: !include scripts.yaml
 zone: !include zones.yaml

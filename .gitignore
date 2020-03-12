@@ -9,6 +9,7 @@
 !esphome/common
 !esphome/common/binary_sensor
 !esphome/common/sensor
+!packages
 !themes
 !www
 !www/themes/*

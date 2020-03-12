@@ -1,0 +1,17 @@
+automation:
+  - id: telegram_send_message_on_xiaomi_mijia_flora_01_moisture_is_low
+    alias: "Telegram send message ON mijia flora 01 moisture IS low"
+    trigger:
+      platform: numeric_state
+      entity_id: sensor.xiaomi_mijia_flora_01_moisture
+      below: 15
+    action:
+      service: telegram_bot.send_message
+      data:
+        message: "Por favor, riega la orquídea cuanto antes."
+
+telegram_bot:
+  - platform: polling
+    api_key: !secret telegram_bot_api_key
+    allowed_chat_ids:
+      - !secret telegram_bot_chat_id
