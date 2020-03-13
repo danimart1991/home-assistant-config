@@ -20,6 +20,7 @@ This repository has complementary articles to follow all the progress in:
 | Home Assistant configuration in YAML | [🔗](https://www.danielmartingonzalez.com/configuracion-de-home-assistant-en-yaml/) | [🔗](https://www.danielmartingonzalez.com/home-assistant-configuration-in-yaml/) |
 | Images for people in Home Assistant | [🔗](https://www.danielmartingonzalez.com/imagenes-para-personas-en-home-assistant/) | [🔗](https://www.danielmartingonzalez.com/images-for-people-in-home-assistant/) |
 | Track devices in Home Assistant | [🔗](https://www.danielmartingonzalez.com/seguimiento-de-dispositivos-en-home-assistant/) | [🔗](https://www.danielmartingonzalez.com/track-devices-in-home-assistant/) |
+| YAML files by package in Home Assistant | [🔗](https://www.danielmartingonzalez.com/archivos-yaml-por-paquetes-en-home-assistant/) | [🔗](https://www.danielmartingonzalez.com/yaml-files-by-package-in-home-assistant/) |
   
 Make sure to check it out.
 
