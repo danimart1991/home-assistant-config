@@ -9,6 +9,7 @@ views:
       - person.eva
       - sensor.home_mean_temperature
       - switch.boiler_heating
+      - sensor.electric_period
     cards:
       - type: thermostat
         entity: climate.home_thermostat
@@ -23,6 +24,7 @@ views:
       - person.eva
       - sensor.ground_floor_mean_temperature
       - switch.boiler_heating
+      - sensor.electric_period
     cards:
       - type: thermostat
         entity: climate.ground_floor_thermostat
@@ -85,6 +87,7 @@ views:
       - person.eva
       - sensor.first_floor_mean_temperature
       - switch.boiler_heating
+      - sensor.electric_period
     cards:
       - type: thermostat
         entity: climate.first_floor_thermostat
@@ -123,6 +126,7 @@ views:
       - person.dani
       - person.eva
       - switch.boiler_heating
+      - sensor.electric_period
     cards:
   - id: 4
     icon: mdi:engine
@@ -132,6 +136,7 @@ views:
       - person.dani
       - person.eva
       - switch.boiler_heating
+      - sensor.electric_period
     cards:
       - cards:
           - cards:
