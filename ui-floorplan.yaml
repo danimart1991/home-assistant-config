@@ -1,0 +1,45 @@
+title: "Floor Plan"
+views:
+  - id: 0
+    icon: mdi:home
+    name: Home
+    path: home
+    badges:
+      - person.dani
+      - person.eva
+      - sensor.home_mean_temperature
+      - switch.boiler_heating
+      - sensor.electric_period
+    cards:
+  - id: 1
+    icon: mdi:home-floor-0
+    name: Ground Floor
+    path: ground_floor
+    badges:
+      - person.dani
+      - person.eva
+      - sensor.ground_floor_mean_temperature
+      - switch.boiler_heating
+      - sensor.electric_period
+    cards:
+  - id: 2
+    icon: mdi:home-floor-1
+    name: "First Floor"
+    path: first_floor
+    badges:
+      - person.dani
+      - person.eva
+      - sensor.first_floor_mean_temperature
+      - switch.boiler_heating
+      - sensor.electric_period
+    cards:
+  - id: 3
+    icon: mdi:home-floor-2
+    name: "Second Floor"
+    path: second_floor
+    badges:
+      - person.dani
+      - person.eva
+      - switch.boiler_heating
+      - sensor.electric_period
+    cards:
