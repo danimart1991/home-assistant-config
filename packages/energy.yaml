@@ -1,0 +1,16 @@
+pvpc_hourly_pricing:
+  - name: "PVPC 2.0 DHA"
+    tariff: discrimination
+
+sensor:
+  - platform: time_date
+    display_options:
+      - 'time_utc'
+  - platform: template
+    sensors:
+      electric_period:
+        friendly_name: "Electric Period"
+        value_template: 
+          "{{ 'valley' if states('sensor.time_utc') >= '21:00' or states('sensor.time_utc') < '11:00' else 'peak' }}"
+        icon_template:
+          "{{ 'mdi:brightness-2' if states('sensor.time_utc') >= '21:00' or states('sensor.time_utc') < '11:00' else 'mdi:brightness-5' }}"
