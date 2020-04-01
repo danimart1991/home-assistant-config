@@ -1,4 +1,4 @@
-title: "Home"
+title: "Overview"
 views:
   - id: 0
     icon: mdi:home
