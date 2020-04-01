@@ -10,3 +10,32 @@ sensor:
             "{{ 'valley' if states('sensor.time_utc') >= '21:00' or states('sensor.time_utc') <= '11:00' else 'peak' }}"
           icon_template:
             "{{ 'mdi:brightness-2' if states('sensor.time_utc') >= '21:00' or states('sensor.time_utc') <= '11:00' else 'mdi:brightness-5' }}"
+  
+  # Thanks to @Rabeliyo for the help
+  # utility_meter:
+  #   daily_energy:
+  #     source: sensor.kw_h_placa_total_hoy
+  #     cycle: daily
+  #     tariffs:
+  #       - "peak"
+  #       - "valley"
+  #   monthly_energy:
+  #     source: sensor.kw_h_placa_total_hoy
+  #     cycle: monthly
+  #     tariffs:
+  #       - "peak"
+  #       - "valley"
+  
+  # automation:
+  #   - alias: Electric Tariff Change
+  #     trigger:
+  #       - platform: template
+  #         value_template: "{{ is_state('sensor.time_utc', '21:00') or is_state('sensor.time_utc', '11:00') }}"
+  #     action:
+  #       - service: utility_meter.select_tariff
+  #         entity_id: 
+  #           - utility_meter.daily_energy
+  #           - utility_meter.monthly_energy
+  #         data_template:
+  #           tariff:
+  #             "{{ 'valley' if states('sensor.time_utc') >= '21:00' or states('sensor.time_utc') <= '11:00' else 'peak' }}"
