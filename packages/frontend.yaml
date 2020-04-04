@@ -21,6 +21,9 @@ frontend:
 
 lovelace:
   mode: yaml
+  resources:
+    - url: /local/pvpc-hourly-pricing-card/pvpc-hourly-pricing-card.js
+      type: module
   dashboards:
     lovelace-generated:
       mode: yaml
