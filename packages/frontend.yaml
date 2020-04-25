@@ -22,7 +22,7 @@ frontend:
 lovelace:
   mode: yaml
   resources:
-    - url: /local/pvpc-hourly-pricing-card/pvpc-hourly-pricing-card.js
+    - url: /local/pvpc-hourly-pricing-card/dist/pvpc-hourly-pricing-card.js?v=0.0.3
       type: module
   dashboards:
     lovelace-generated:

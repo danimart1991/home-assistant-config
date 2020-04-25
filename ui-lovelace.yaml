@@ -16,8 +16,9 @@ views:
       - type: weather-forecast
         entity: weather.outside_house
       - type: "custom:pvpc-hourly-pricing-card"
-        title: "PVPC"
-        entity_id: sensor.pvpc_2_0_dha
+        name: "PVPC"
+        entity: sensor.pvpc_2_0_dha
+        info: false
   - id: 1
     icon: mdi:home-floor-0
     name: Ground Floor
