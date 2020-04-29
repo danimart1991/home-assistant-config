@@ -1,12 +1,6 @@
 homeassistant:
-  customize:
-    sensor.home_floor_mean_temperature:
-      device_class: temperature
-      icon: mdi:thermometer
-    sensor.ground_floor_mean_temperature:
-      device_class: temperature
-      icon: mdi:thermometer
-    sensor.first_floor_mean_temperature:
+  customize_glob:
+    sensor.*_temperature:
       device_class: temperature
       icon: mdi:thermometer
 
