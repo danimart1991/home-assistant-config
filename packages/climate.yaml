@@ -44,6 +44,13 @@ climate:
     initial_hvac_mode: "off"
     away_temp: 19
     target_temp: 22
+  - platform: generic_thermostat
+    name: "Second Floor Thermostat"
+    heater: switch.boiler_heating
+    target_sensor: sensor.second_floor_mean_temperature
+    initial_hvac_mode: "off"
+    away_temp: 19
+    target_temp: 22
 
 sensor:
   - platform: min_max
@@ -53,6 +60,7 @@ sensor:
     entity_ids:
       - sensor.ground_floor_mean_temperature
       - sensor.first_floor_mean_temperature
+      - sensor.second_floor_mean_temperature
   - platform: min_max
     name: "Ground Floor Mean Temperature"
     type: mean
@@ -66,6 +74,11 @@ sensor:
     entity_ids:
       - sensor.esp8266_01_temperature
       - sensor.esp8266_02_temperature
+  - platform: min_max
+    name: "Second Floor Mean Temperature"
+    type: mean
+    round_digits: 1
+    entity_ids:
       - sensor.esp32_cam_01_temperature
 
 weather:

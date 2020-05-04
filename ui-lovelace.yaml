@@ -111,17 +111,6 @@ views:
             name: "Humidity"
           - entity: media_player.webos_tv_lm6300pla
             name: "Television"
-      - type: glance
-        title: "Play Room"
-        entities:
-          - entity: sensor.esp32_cam_01_temperature
-            name: "Temperature"
-          - entity: sensor.esp32_cam_01_humidity
-            name: "Humidity"
-          - entity: camera.esp32_cam_01_camera
-            name: "Camera"
-          - entity: light.esp32_cam_01_light
-            name: "Camera Light"
   - id: 3
     icon: mdi:home-floor-2
     name: "Second Floor"
@@ -129,9 +118,19 @@ views:
     badges:
       - person.dani
       - person.eva
+      - sensor.second_floor_mean_temperature
       - switch.boiler_heating
       - sensor.electric_period
     cards:
+      - type: thermostat
+        entity: climate.second_floor_thermostat
+      - type: glance
+        title: "Office"
+        entities:
+          - entity: sensor.esp32_cam_01_temperature
+            name: "Temperature"
+          - entity: sensor.esp32_cam_01_humidity
+            name: "Humidity"
   - id: 4
     icon: mdi:engine
     name: "System"
