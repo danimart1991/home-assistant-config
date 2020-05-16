@@ -15,4 +15,4 @@ person:
     id: eva
     user_id: 66cf8d255d2245499b7130c3c4c25890
     device_trackers:
-      - device_tracker.iphone_x
+      - device_tracker.apple_iphone_x
