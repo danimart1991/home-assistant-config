@@ -6,13 +6,14 @@ homeassistant:
   unit_system: metric
   time_zone: "Europe/Madrid"
   packages: !include_dir_named packages
+  external_url: !secret homeassistant_external_url
+  internal_url: !secret homeassistant_internal_url
 
 config:
 ffmpeg:
 history:
 
 http:
-  base_url: !secret http_base_url
   ssl_certificate: /ssl/fullchain.pem
   ssl_key: /ssl/privkey.pem
 
