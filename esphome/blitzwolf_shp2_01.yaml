@@ -13,6 +13,7 @@ esphome:
 wifi:
   ssid: !secret base_wifi_ssid
   password: !secret base_wifi_password
+  power_save_mode: none
   manual_ip:
     static_ip: !secret blitzwolf_shp2_01_wifi_manual_ip_static_ip
     gateway: !secret base_wifi_manual_ip_gateway
@@ -43,7 +44,7 @@ switch:
   - platform: gpio
     id: ${devicename}_switch
     name: ${upper_devicename} Switch
-    restore_mode: ALWAYS_ON
+    restore_mode: RESTORE_DEFAULT_OFF
     pin: GPIO14
     on_turn_on:
       - switch.turn_on: ${devicename}_blue_led
@@ -53,7 +54,7 @@ switch:
   - platform: gpio
     id: ${devicename}_blue_led
     internal: True
-    restore_mode: ALWAYS_ON
+    restore_mode: RESTORE_DEFAULT_OFF
     pin: 
       number: GPIO01
       inverted: True
