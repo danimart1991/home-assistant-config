@@ -166,6 +166,7 @@ views:
           - automation.telegram_send_message_on_mijia_flora_01_moisture_is_low
           - automation.turn_on_off_garage_blanket
           - automation.turn_on_the_heating_at_morning
+          - automation.restart_esp32_cam_everyday_at_a_time
       - type: glance
         title: "Status"
         columns: 3

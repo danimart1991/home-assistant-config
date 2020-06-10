@@ -9,3 +9,13 @@ camera:
     username: !secret camera_rpi0w_meye-20f5d0f5_user
     password: !secret camera_rpi0w_meye-20f5d0f5_password
     authentication: basic
+
+automation:
+  - id: restart_esp32_cam_everyday_at_a_time
+    alias: Restart ESP32-CAM everyday at a time
+    trigger:
+      - platform: time
+        at: 00:00:00
+    action:
+      - service: switch.turn_on
+        entity_id: switch.esp32_cam_01_restart
