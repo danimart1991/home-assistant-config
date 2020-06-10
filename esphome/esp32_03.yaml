@@ -22,15 +22,60 @@ wifi:
 <<: !include common/logger.yaml
 <<: !include common/web_server.yaml
 
-i2c:
-  - sda: GPIO21
-    scl: GPIO22
-
 sensor:
-  - !include common/sensor/bme280.yaml
+  - platform: dht
+    pin: GPIO32
+    model: AM2302
+    temperature:
+      name: ${upper_devicename} Temperature
+      id: ${devicename}_temperature
+    humidity:
+      name: ${upper_devicename} Humidity
+      id: ${devicename}_humidity
+    update_interval: ${default_update_interval}
 
 binary_sensor:
   - !include common/binary_sensor/status.yaml
+  - platform: gpio
+    pin:
+      number: GPIO25
+    id: ${devicename}_button
+    name: ${upper_devicename} Button
+    filters:
+      - delayed_on: 25ms
+      - delayed_off: 2000ms
+    on_press:
+      - switch.turn_on: ${devicename}_switch
+
+switch:
+  - platform: gpio
+    pin: GPIO27
+    id: relay
+  - platform: template
+    id: ${devicename}_mute
+    name: ${upper_devicename} Mute
+    icon: mdi:volume-mute
+    optimistic: true
+    turn_on_action:
+      then:
+        switch.turn_off: ${devicename}_switch
+  - platform: template
+    id: ${devicename}_switch
+    name: ${upper_devicename} Switch
+    icon: mdi:bell
+    lambda: 'return id(relay).state;'
+    turn_on_action:
+      then:
+        if:
+          condition:
+            switch.is_off: ${devicename}_mute
+          then:
+            - switch.turn_on: relay
+            - delay: 100ms
+            - switch.turn_off: relay
+    turn_off_action:
+      then:
+        switch.turn_off: relay
 
 status_led:
   pin: GPIO2

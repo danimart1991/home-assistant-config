@@ -48,6 +48,11 @@ light:
     id: ${devicename}_light
     output: led
 
+switch:
+  - platform: restart
+    name: ${upper_devicename} Restart
+    id: ${devicename}_restart
+
 esp32_camera:
   external_clock:
     pin: GPIO0
