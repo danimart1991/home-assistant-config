@@ -1,3 +1,0 @@
----
-api:
-    password: !secret base_api_password

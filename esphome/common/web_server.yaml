@@ -1,4 +1,0 @@
-web_server:
-  auth:
-    username: !secret base_web_server_username
-    password: !secret base_web_server_password

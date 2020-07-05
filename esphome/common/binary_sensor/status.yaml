@@ -1,4 +1,0 @@
----
-platform: status
-name: ${upper_devicename} Status
-id: ${devicename}_status
