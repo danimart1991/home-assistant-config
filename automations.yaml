@@ -1,0 +1,11 @@
+- id: '1594046745791'
+  alias: Restart F2_0_Hub everyday
+  description: Restart Floor 2 - Office - Hub everyday
+  trigger:
+  - at: 00:00:00
+    platform: time
+  condition: []
+  action:
+  - data: {}
+    entity_id: switch.f2_o_hub_restart
+    service: switch.turn_on

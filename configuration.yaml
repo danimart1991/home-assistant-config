@@ -10,6 +10,8 @@ homeassistant:
   internal_url: !secret homeassistant_internal_url
   customize: !include customize.yaml
 
+automation: !include automations.yaml
+
 config:
 ffmpeg:
 history:
