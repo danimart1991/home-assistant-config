@@ -1,7 +1,3 @@
-pvpc_hourly_pricing:
-  - name: "PVPC 2.0 DHA"
-    tariff: discrimination
-
 sensor:
   - platform: time_date
     display_options:
