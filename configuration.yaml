@@ -8,6 +8,7 @@ homeassistant:
   packages: !include_dir_named packages
   external_url: !secret homeassistant_external_url
   internal_url: !secret homeassistant_internal_url
+  customize: !include customize.yaml
 
 config:
 ffmpeg:
