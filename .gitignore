@@ -9,6 +9,8 @@
 !themes
 !www
 !www/themes/*
+!.github
+!.github/*
 !*.yaml
 !*.HA_VERSION
 !.gitignore
