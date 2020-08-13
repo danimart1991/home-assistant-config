@@ -161,8 +161,7 @@ views:
         type: history-graph
       - type: entities
         title: "Automations"
-        entities:          
-          - automation.change_theme
+        entities:
           - automation.telegram_send_message_on_mijia_flora_01_moisture_is_low
           - automation.turn_on_off_garage_blanket
           - automation.turn_on_the_heating_at_morning

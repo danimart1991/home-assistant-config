@@ -6,9 +6,6 @@
 !docs
 !docs/images
 !packages
-!themes
-!www
-!www/themes/*
 !.github
 !.github/*
 !*.yaml

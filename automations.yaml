@@ -37,21 +37,3 @@
   - data: {}
     entity_id: switch.f1_mb_mosquito_switch
     service: switch.turn_off
-- id: '1594106565686'
-  alias: Change theme day/night
-  description: Change theme on sunset and sunrise
-  trigger:
-  - event: start
-    platform: homeassistant
-  - entity_id: sun.sun
-    platform: state
-    to: above_horizon
-  - entity_id: sun.sun
-    platform: state
-    to: below_horizon
-  condition: []
-  action:
-  - data_template:
-      name: '{{ "clear" if is_state("sun.sun", "above_horizon") else "clear-dark"
-        }}'
-    service: frontend.set_theme
