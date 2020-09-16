@@ -27,3 +27,9 @@ sun:
 system_health:
 wake_on_lan:
 zone: !include zones.yaml
+
+sensor:
+  - platform: time_date
+    display_options:
+      - 'time_utc'
+      - 'time'

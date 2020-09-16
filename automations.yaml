@@ -25,9 +25,9 @@
     service: switch.turn_on
 - id: '1594066278278'
   alias: Bedrooms Day Mode
-  description: Turn off mosquito switches on bedrooms at 6:00
+  description: Turn off mosquito switches on bedrooms at 08:00
   trigger:
-  - at: 06:00:00
+  - at: 08:00:00
     platform: time
   condition: []
   action:
