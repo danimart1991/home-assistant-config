@@ -81,8 +81,3 @@ sensor:
     round_digits: 1
     entity_ids:
       - sensor.f2_o_hub_temperature
-
-weather:
-  - platform: openweathermap
-    name: "Outside House"
-    api_key: !secret weather_openweathermap_api_key
