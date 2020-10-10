@@ -1,11 +1,23 @@
+homeassistant:
+  customize:
+    camera.f0_g_camera:
+      friendly_name: "Floor 0 - Garage - Camera"
+    camera.f0_e_camera:
+      friendly_name: "Floor 0 - Entrance - Camera"
+  customize_glob:
+    camera.*:
+      icon: mdi:cctv
+      
 camera:
+  # Sricam SP009
   - platform: ffmpeg
-    name: "Camera SP009"
-    input: !secret camera_sp009_input
+    name: "f0_g_camera"
+    input: !secret f0_g_camera_input
     extra_arguments: -an
+  # Raspberry Pi Zero + Motion Eye
   - platform: mjpeg
-    name: "RPi0W meye-20f5d0f5"
-    mjpeg_url: !secret camera_rpi0w_meye-20f5d0f5_url
-    username: !secret camera_rpi0w_meye-20f5d0f5_user
-    password: !secret camera_rpi0w_meye-20f5d0f5_password
+    name: "f0_e_camera"
+    mjpeg_url: !secret f0_e_camera_url
+    username: !secret f0_e_camera_user
+    password: !secret f0_e_camera_password
     authentication: basic
