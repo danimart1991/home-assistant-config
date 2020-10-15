@@ -12,6 +12,9 @@ homeassistant:
 
 automation: !include automations.yaml
 
+alexa:
+  smart_home:
+api:
 config:
 ffmpeg:
 history:
