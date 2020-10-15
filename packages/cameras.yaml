@@ -1,9 +1,9 @@
 homeassistant:
   customize:
     camera.f0_g_camera:
-      friendly_name: "Floor 0 - Garage - Camera"
+      friendly_name: "Garaje - Camara"
     camera.f0_e_camera:
-      friendly_name: "Floor 0 - Entrance - Camera"
+      friendly_name: "Entrada - Camara"
   customize_glob:
     camera.*:
       icon: mdi:cctv

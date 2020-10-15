@@ -1,3 +1,10 @@
+homeassistant:
+  customize:
+    switch.m_plug_switch:
+      friendly_name: "Acuario - Luz"
+    binary_sensor.m_plug_status:
+      friendly_name: "Acuario - Conectividad"
+
 input_datetime:
   f0_lr_aquarium_light_time_start:
     name: Hour to Turn On Aquarium Light
@@ -12,8 +19,8 @@ input_datetime:
 
 automation:
   - id: '1594066196111'
-    alias: Floor 0 - Living Room - Aquarium - Turn On Light
-    description: Turn on Living Room Aquarium Light on f0_lr_aquarium_light_time_start
+    alias: "Acuario - Encender Luz Automáticamente"
+    description: "Encender la luz del Acuario del Salón a la hora configurada"
     trigger:
       platform: template
       value_template: "{{ states('sensor.time') == (state_attr('input_datetime.f0_lr_aquarium_light_time_start', 'timestamp') | int | timestamp_custom('%H:%M', False)) }}"
@@ -21,8 +28,8 @@ automation:
       - entity_id: switch.m_plug_switch
         service: switch.turn_on
   - id: '1594066196112'
-    alias: Floor 0 - Living Room - Aquarium - Turn Off Light
-    description: Turn off Living Room Aquarium Light on f0_lr_aquarium_light_time_end
+    alias: "Acuario - Apagar Luz Automáticamente"
+    description: "Apagar la luz del Acuario del Salón a la hora configurada"
     trigger:
       platform: template
       value_template: "{{ states('sensor.time') == (state_attr('input_datetime.f0_lr_aquarium_light_time_end', 'timestamp') | int | timestamp_custom('%H:%M', False)) }}"
