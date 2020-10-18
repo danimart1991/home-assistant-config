@@ -25,28 +25,28 @@ automation:
 climate:
   - platform: generic_thermostat
     name: "Home Thermostat"
-    heater: switch.boiler_heating
+    heater: switch.f0_u_waterheater_heating
     target_sensor: sensor.home_mean_temperature
     initial_hvac_mode: "off"
     away_temp: 19
     target_temp: 22
   - platform: generic_thermostat
     name: "Ground Floor Thermostat"
-    heater: switch.boiler_heating
+    heater: switch.f0_u_waterheater_heating
     target_sensor: sensor.ground_floor_mean_temperature
     initial_hvac_mode: "off"
     away_temp: 19
     target_temp: 22
   - platform: generic_thermostat
     name: "First Floor Thermostat"
-    heater: switch.boiler_heating
+    heater: switch.f0_u_waterheater_heating
     target_sensor: sensor.first_floor_mean_temperature
     initial_hvac_mode: "off"
     away_temp: 19
     target_temp: 22
   - platform: generic_thermostat
     name: "Second Floor Thermostat"
-    heater: switch.boiler_heating
+    heater: switch.f0_u_waterheater_heating
     target_sensor: sensor.second_floor_mean_temperature
     initial_hvac_mode: "off"
     away_temp: 19
