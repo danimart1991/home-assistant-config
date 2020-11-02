@@ -1,9 +1,8 @@
 sensor:
   - platform: template
     sensors:
-      electric_period:
-        friendly_name: "Electric Period"
-        value_template: 
-          "{{ 'valley' if states('sensor.time_utc') >= '21:00' or states('sensor.time_utc') < '11:00' else 'peak' }}"
-        icon_template:
-          "{{ 'mdi:brightness-2' if states('sensor.time_utc') >= '21:00' or states('sensor.time_utc') < '11:00' else 'mdi:brightness-5' }}"
+      electricperiod:
+        friendly_name: "Periodo Eléctrico"
+        unique_id: electricperiod
+        value_template: "{{ 'valle' if states('sensor.time_utc') >= '21:00' or states('sensor.time_utc') < '11:00' else 'pico' }}"
+        icon_template: "{{ 'mdi:brightness-2' if states('sensor.time_utc') >= '21:00' or states('sensor.time_utc') < '11:00' else 'mdi:brightness-5' }}"
