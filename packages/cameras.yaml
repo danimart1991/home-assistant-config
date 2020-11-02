@@ -1,23 +1,25 @@
 homeassistant:
   customize:
-    camera.f0_g_camera:
-      friendly_name: "Garaje - Camara"
-    camera.f0_e_camera:
-      friendly_name: "Entrada - Camara"
+    camera.garage_camera:
+      friendly_name: "Garaje - Cámara"
+    camera.entrance_camera:
+      friendly_name: "Entrada - Cámara"
   customize_glob:
     camera.*:
       icon: mdi:cctv
-      
+
+stream:
+
 camera:
   # Sricam SP009
   - platform: ffmpeg
-    name: "f0_g_camera"
-    input: !secret f0_g_camera_input
+    name: garage_camera
+    input: !secret garage_camera_input
     extra_arguments: -an
   # Raspberry Pi Zero + Motion Eye
   - platform: mjpeg
-    name: "f0_e_camera"
-    mjpeg_url: !secret f0_e_camera_url
-    username: !secret f0_e_camera_user
-    password: !secret f0_e_camera_password
+    name: entrance_camera
+    mjpeg_url: !secret entrance_camera_url
+    username: !secret entrance_camera_user
+    password: !secret entrance_camera_password
     authentication: basic
