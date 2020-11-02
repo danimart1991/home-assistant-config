@@ -1,38 +1,29 @@
+default_config:
+
 homeassistant:
-  name: "Home"
+  name: !secret homeassistant_name
   latitude: !secret zones_home_latitude
   longitude: !secret zones_home_longitude
   elevation: !secret zones_home_elevation
-  unit_system: metric
   time_zone: "Europe/Madrid"
-  packages: !include_dir_named packages
+  unit_system: metric
   external_url: !secret homeassistant_external_url
   internal_url: !secret homeassistant_internal_url
   customize: !include customize.yaml
+  packages: !include_dir_named packages
 
+group: !include groups.yaml
 automation: !include automations.yaml
-
 alexa:
   smart_home:
 api:
-config:
-ffmpeg:
-history:
-
-http:
-  ssl_certificate: /ssl/fullchain.pem
-  ssl_key: /ssl/privkey.pem
-
-logbook:
-map:
-mobile_app:
-sun:
-system_health:
+script: !include scripts.yaml
+scene: !include scenes.yaml
 wake_on_lan:
 zone: !include zones.yaml
 
 sensor:
   - platform: time_date
     display_options:
-      - 'time_utc'
-      - 'time'
+      - "time_utc"
+      - "time"
