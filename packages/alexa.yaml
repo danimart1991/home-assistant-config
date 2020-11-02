@@ -1,0 +1,41 @@
+alexa:
+  smart_home:
+    filter:
+      include_entities:
+        # Home
+        - climate.home_thermostat
+        # GroundFloor
+        - climate.groundfloor_thermostat
+        # Entrance
+        - camera.entrance_camera
+        # Garage
+        - sensor.garage_hub_temperature
+        - camera.garage_camera
+        # Kitchen
+        - sensor.kitchen_hub_temperature
+        - switch.kitchen_dishwasher_switch
+        # Utility
+        - switch.utility_washingmachine_switch
+        # LivingRoom
+        - sensor.livingroom_hub_temperature
+        - media_player.livingroom_television
+        - media_player.xbox_systemos
+        - switch.livingroom_aquariumplug_switch
+        # FirstFloor
+        - climate.firstfloor_thermostat
+        # KidsBedroom
+        - sensor.kidsbedroom_hub_temperature
+        - switch.kidsbedroom_nightplug_switch
+        # MasterBedroom
+        - sensor.masterbedroom_hub_temperature
+        - media_player.masterbedroom_television
+        - switch.masterbedroom_nightplug_switch
+        # SecondFloor
+        - climate.secondfloor_thermostat
+        # Office
+        - sensor.office_hub_temperature
+    entity_config:
+      camera.entrance_camera:
+        display_categories: CAMERA
+      camera.garage_camera:
+        display_categories: CAMERA

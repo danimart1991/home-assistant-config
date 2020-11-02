@@ -14,9 +14,6 @@ homeassistant:
 
 group: !include groups.yaml
 automation: !include automations.yaml
-alexa:
-  smart_home:
-api:
 script: !include scripts.yaml
 scene: !include scenes.yaml
 wake_on_lan:
