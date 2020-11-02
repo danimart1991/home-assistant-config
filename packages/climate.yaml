@@ -1,16 +1,36 @@
 homeassistant:
   customize_glob:
-    sensor.*_temperature:
+    sensor.*_meantemperature:
       device_class: temperature
       icon: mdi:thermometer
+  customize:
+    automation.home_thermostat_turnupthetemperatureatmorning:
+      friendly_name: Casa - Termostato - Subir a 22º a las 6:00
+      icon: mdi:thermometer-chevron-up
+    climate.home_thermostat:
+      friendly_name: Casa - Termostato
+    climate.groundfloor_thermostat:
+      friendly_name: Planta Baja - Termostato
+    climate.firstfloor_thermostat:
+      friendly_name: Primera Planta - Termostato
+    climate.secondfloor_thermostat:
+      friendly_name: Segunda Planta - Termostato
+    sensor.home_meantemperature:
+      friendly_name: Casa - Temperatura Media
+    sensor.groundfloor_meantemperature:
+      friendly_name: Planta Baja - Temperatura Media
+    sensor.firstfloor_meantemperature:
+      friendly_name: Primera Planta - Temperatura Media
+    sensor.secondfloor_meantemperature:
+      friendly_name: Segunda Planta - Temperatura Media
 
 automation:
-  - id: turn_on_the_heating_at_morning
-    alias: "Turn on the heating at morning"
-    description: "Set target temperature to home ON 05:30:00 IF automatic heating is enabled"
+  - id: home_thermostat_turnupthetemperatureatmorning
+    alias: "Home - Thermostat - TurnUpTheTemperatureAtMorning"
+    description: "Set target temperature at home to 22º at 06:00:00 if automatic thermostat is enabled"
     trigger:
       - platform: time
-        at: 05:30:00
+        at: 06:00:00
     condition:
       - condition: state
         entity_id: climate.home_thermostat
@@ -24,60 +44,60 @@ automation:
 
 climate:
   - platform: generic_thermostat
-    name: "Home Thermostat"
-    heater: switch.f0_u_waterheater_heating
-    target_sensor: sensor.home_mean_temperature
+    name: home_thermostat
+    heater: switch.home_heater_switch
+    target_sensor: sensor.home_meantemperature
     initial_hvac_mode: "off"
     away_temp: 19
     target_temp: 22
   - platform: generic_thermostat
-    name: "Ground Floor Thermostat"
-    heater: switch.f0_u_waterheater_heating
-    target_sensor: sensor.ground_floor_mean_temperature
+    name: groundfloor_thermostat
+    heater: switch.home_heater_switch
+    target_sensor: sensor.groundfloor_meantemperature
     initial_hvac_mode: "off"
     away_temp: 19
     target_temp: 22
   - platform: generic_thermostat
-    name: "First Floor Thermostat"
-    heater: switch.f0_u_waterheater_heating
-    target_sensor: sensor.first_floor_mean_temperature
+    name: firstfloor_thermostat
+    heater: switch.home_heater_switch
+    target_sensor: sensor.firstfloor_meantemperature
     initial_hvac_mode: "off"
     away_temp: 19
     target_temp: 22
   - platform: generic_thermostat
-    name: "Second Floor Thermostat"
-    heater: switch.f0_u_waterheater_heating
-    target_sensor: sensor.second_floor_mean_temperature
+    name: secondfloor_thermostat
+    heater: switch.home_heater_switch
+    target_sensor: sensor.secondfloor_meantemperature
     initial_hvac_mode: "off"
     away_temp: 19
     target_temp: 22
 
 sensor:
   - platform: min_max
-    name: "Home Mean Temperature"
+    name: home_meantemperature
     type: mean
     round_digits: 1
     entity_ids:
-      - sensor.ground_floor_mean_temperature
-      - sensor.first_floor_mean_temperature
-      - sensor.second_floor_mean_temperature
+      - sensor.groundfloor_meantemperature
+      - sensor.firstfloor_meantemperature
+      - sensor.secondfloor_meantemperature
   - platform: min_max
-    name: "Ground Floor Mean Temperature"
+    name: groundfloor_meantemperature
     type: mean
     round_digits: 1
     entity_ids:
-      - sensor.f0_lr_hub_temperature
-      - sensor.f0_k_hub_temperature
+      - sensor.kitchen_hub_temperature
+      - sensor.livingroom_hub_temperature
   - platform: min_max
-    name: "First Floor Mean Temperature"
+    name: firstfloor_meantemperature
     type: mean
     round_digits: 1
     entity_ids:
-      - sensor.f1_kb_hub_temperature
-      - sensor.f1_mb_hub_temperature
+      - sensor.kidsbedroom_hub_temperature
+      - sensor.masterbedroom_hub_temperature
   - platform: min_max
-    name: "Second Floor Mean Temperature"
+    name: secondfloor_meantemperature
     type: mean
     round_digits: 1
     entity_ids:
-      - sensor.f2_o_hub_temperature
+      - sensor.office_hub_temperature

@@ -1,6 +1,0 @@
-homeassistant:
-  customize:
-    switch.f0_k_dishwasher_switch:
-      friendly_name: "Cocina - Lavavajillas - Interruptor"
-    binary_sensor.f0_k_dishwasher_status:
-      friendly_name: "Cocina - Lavavajillas - Conectividad"

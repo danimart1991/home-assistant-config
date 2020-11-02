@@ -1,6 +1,0 @@
-homeassistant:
-  customize:
-    sensor.f0_g_hub_temperature:
-      friendly_name: "Garaje - Temperatura"
-    binary_sensor.f0_g_hub_status:
-      friendly_name: "Garaje - Conectividad"

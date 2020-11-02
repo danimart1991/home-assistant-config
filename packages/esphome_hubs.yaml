@@ -1,0 +1,108 @@
+homeassistant:
+  customize:
+    # Garage Hub
+    sensor.garage_hub_temperature:
+      friendly_name: Garaje - Temperatura
+    sensor.garage_hub_humidity:
+      friendly_name: Garaje - Humedad
+    sensor.garage_hub_pressure:
+      friendly_name: Garaje - Presión
+    binary_sensor.garage_hub_status:
+      friendly_name: Garaje - Hub - Conectividad
+    # Home Heater
+    switch.home_heater_switch:
+      friendly_name: Casa - Calefacción
+      icon: mdi:radiator
+    binary_sensor.home_heater_status:
+      friendly_name: Casa - Calefacción - Conectividad
+    # KidsBedroom Hub
+    sensor.kidsbedroom_hub_temperature:
+      friendly_name: Dormitorio Niños - Temperatura
+    sensor.kidsbedroom_hub_humidity:
+      friendly_name: Dormitorio Niños - Humedad
+    sensor.kidsbedroom_hub_pressure:
+      friendly_name: Dormitorio Niños - Presión
+    binary_sensor.kidsbedroom_hub_status:
+      friendly_name: Dormitorio Niños - Hub - Conectividad
+    # KidsBedroom NightPlug
+    switch.kidsbedroom_nightplug_switch:
+      friendly_name: Dormitorio Niños - Enchufe Noche - Apagar/Encender
+    switch.kidsbedroom_nightplug_autoswitch:
+      friendly_name: Dormitorio Niños - Enchufe Noche - Apagar/Encender Automáticamente
+      icon: mdi:flash-auto
+    sensor.kidsbedroom_nightplug_nextturnoff:
+      friendly_name: Dormitorio Niños - Enchufe Noche - Próximo Apagado Automático
+    sensor.kidsbedroom_nightplug_nextturnon:
+      friendly_name: Dormitorio Niños - Enchufe Noche - Próximo Encendido Automático
+    binary_sensor.kidsbedroom_nightplug_status:
+      friendly_name: Dormitorio Niños - Enchufe Noche - Conectividad
+    # LivingRoom AquariumPlug
+    switch.livingroom_aquariumplug_switch:
+      friendly_name: Salón - Luz Acuario - Apagar/Encender
+    switch.livingroom_aquariumplug_autoswitch:
+      friendly_name: Salón - Luz Acuario - Apagar/Encender Automáticamente
+      icon: mdi:flash-auto
+    sensor.livingroom_aquariumplug_nextturnoff:
+      friendly_name: Salón - Luz Acuario - Próximo Apagado Automático
+    sensor.livingroom_aquariumplug_nextturnon:
+      friendly_name: Salón - Luz Acuario - Próximo Encendido Automático
+    binary_sensor.livingroom_aquariumplug_status:
+      friendly_name: Salón - Luz Acuario - Conectividad
+    # LivingRoom Hub
+    sensor.livingroom_hub_temperature:
+      friendly_name: Salón - Temperatura
+    sensor.livingroom_hub_humidity:
+      friendly_name: Salón - Humedad
+    sensor.livingroom_hub_pressure:
+      friendly_name: Salón - Presión
+    binary_sensor.livingroom_hub_status:
+      friendly_name: Salón - Hub - Conectividad
+    # MasterBedroom Hub
+    sensor.masterbedroom_hub_temperature:
+      friendly_name: Dormitorio Principal - Temperatura
+    sensor.masterbedroom_hub_humidity:
+      friendly_name: Dormitorio Principal - Humedad
+    sensor.masterbedroom_hub_pressure:
+      friendly_name: Dormitorio Principal - Presión
+    binary_sensor.masterbedroom_hub_status:
+      friendly_name: Dormitorio Principal - Hub - Conectividad
+    # MasterBedroom NightPlug
+    switch.masterbedroom_nightplug_switch:
+      friendly_name: Dormitorio Principal - Enchufe Noche - Apagar/Encender
+    switch.masterbedroom_nightplug_autoswitch:
+      friendly_name: Dormitorio Principal - Enchufe Noche - Apagar/Encender Automáticamente
+      icon: mdi:flash-auto
+    sensor.masterbedroom_nightplug_nextturnoff:
+      friendly_name: Dormitorio Principal - Enchufe Noche - Próximo Apagado Automático
+    sensor.masterbedroom_nightplug_nextturnon:
+      friendly_name: Dormitorio Principal - Enchufe Noche - Próximo Encendido Automático
+    binary_sensor.masterbedroom_nightplug_status:
+      friendly_name: Dormitorio Principal - Enchufe Noche - Conectividad
+    # Office Hub
+    sensor.office_hub_temperature:
+      friendly_name: Despacho - Temperatura
+    sensor.office_hub_humidity:
+      friendly_name: Despacho - Humedad
+    sensor.office_hub_pressure:
+      friendly_name: Despacho - Presión
+    binary_sensor.office_hub_status:
+      friendly_name: Despacho - Hub - Conectividad
+    # Kitchen DishWasher
+    switch.kitchen_dishwasher_switch:
+      friendly_name: Cocina - Lavavajillas - Interruptor
+      icon: mdi:dishwasher
+    binary_sensor.kitchen_dishwasher_status:
+      friendly_name: Cocina - Lavavajillas - Conectividad
+    # Kitchen Hub
+    sensor.kitchen_hub_temperature:
+      friendly_name: Cocina - Temperatura
+    sensor.kitchen_hub_humidity:
+      friendly_name: Cocina - Humedad
+    binary_sensor.kitchen_hub_status:
+      friendly_name: Cocina - Hub - Conectividad
+    # Utility WashingMachine
+    switch.utility_washingmachine_switch:
+      friendly_name: Lavadero - Lavadora - Interruptor
+      icon: mdi:washing-machine
+    binary_sensor.utility_washingmachine_status:
+      friendly_name: Lavadero - Lavadora - Conectividad
