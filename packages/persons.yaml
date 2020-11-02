@@ -1,0 +1,16 @@
+homeassistant:
+  customize:
+    person.dani:
+      icon: mdi:face
+    person.eva:
+      icon: mdi:face-woman
+
+person:
+  - name: Dani
+    id: !secret user_dani_id
+    device_trackers:
+      - device_tracker.oneplus_a5000
+  - name: Eva
+    id: !secret user_eva_id
+    device_trackers:
+      - device_tracker.iphone_de_eva
