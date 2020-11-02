@@ -1,9 +1,0 @@
-webostv:
-  - host: !secret webos_tv_lf652v_host
-    name: "webOS TV LF652V"
-  - host: !secret webos_tv_lm6300pla_host
-    name: "webOS TV LM6300PLA"
-    turn_on_action:
-      service: wake_on_lan.send_magic_packet
-      data:
-        mac: !secret webos_tv_lm6300pla_mac

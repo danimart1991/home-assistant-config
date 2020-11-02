@@ -1,0 +1,21 @@
+homeassistant:
+  customize:
+    media_player.xbox_systemos:
+      friendly_name: Salón - Xbox One
+      icon: mdi:microsoft-xbox
+    media_player.livingroom_television:
+      friendly_name: Salón - Televisión
+      icon: mdi:television-classic
+    media_player.masterbedroom_television:
+      friendly_name: Dormitorio Principal - Televisión
+      icon: mdi:television-classic
+
+webostv:
+  - host: !secret livingroom_television_host
+    name: livingroom_television
+  - host: !secret masterbedroom_television_host
+    name: masterbedroom_television
+    turn_on_action:
+      service: wake_on_lan.send_magic_packet
+      data:
+        mac: !secret masterbedroom_television_mac
