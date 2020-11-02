@@ -1,199 +1,283 @@
-title: "Overview"
 views:
-  - id: 0
+  - title: Resumen
     icon: mdi:home
-    name: Home
-    path: home
+    path: overview
     badges:
-      - person.dani
-      - person.eva
-      - sensor.home_mean_temperature
-      - switch.boiler_heating
-      - sensor.electric_period
+      - entity: person.dani
+      - entity: person.eva
+      - entity: sensor.home_meantemperature
+        name: Temp. Media
+      - entity: switch.home_heater_switch
+        name: Calefacción
+      - entity: sensor.electricperiod
     cards:
       - type: thermostat
         entity: climate.home_thermostat
-      - type: weather-forecast
-        entity: weather.outside_house
-      - type: "custom:pvpc-hourly-pricing-card"
-        name: "PVPC"
-        entity: sensor.pvpc_2_0_dha
-        info: false
-  - id: 1
-    icon: mdi:home-floor-0
-    name: Ground Floor
-    path: ground_floor
-    badges:
-      - person.dani
-      - person.eva
-      - sensor.ground_floor_mean_temperature
-      - switch.boiler_heating
-      - sensor.electric_period
-    cards:
-      - type: thermostat
-        entity: climate.ground_floor_thermostat
-      - type: glance
-        title: "Living Room"
-        entities:
-          - entity: sensor.esp32_01_temperature
-            name: "Temperature"
-          - entity: sensor.esp32_01_humidity
-            name: "Humidity"
-          - plant.orchid
-          - entity: media_player.webos_tv_lf652v
-            name: "Television"
-      - type: entities
-        title: "Garage"
+        name: Termostato
+      - title: Calefacción
+        type: entities
         show_header_toggle: false
+        state_color: true
         entities:
-          - entity: sensor.esp32_02_temperature
-            name: "Temperature"
-          - entity: sensor.esp32_02_humidity
-            name: "Humidity"
-          - entity: camera.camera_sp009
-            name: "Camera"
+          - entity: climate.home_thermostat
+            name: Termostato
+          - entity: automation.home_thermostat_turnupthetemperatureatmorning
+            name: Subir Temp. a 22º a las 06:00
+      - type: weather-forecast
+        entity: weather.openweathermap
+        show_forecast: true
+      - type: weather-forecast
+        entity: weather.casa_gande
+        show_forecast: true
+
+  - title: Planta Baja
+    icon: mdi:home-floor-0
+    path: ground-floor
+    badges:
+      - entity: person.dani
+      - entity: person.eva
+      - entity: sensor.groundfloor_meantemperature
+        name: Temp. Media
+      - entity: switch.home_heater_switch
+        name: Calefacción
+      - entity: sensor.electricperiod
+    cards:
+      - type: thermostat
+        entity: climate.groundfloor_thermostat
+        name: Termostato
+      - title: Salón
+        type: entities
+        show_header_toggle: false
+        state_color: true
+        entities:
           - type: section
-            label: "Animal's Blanket"
-          - entity: automation.turn_on_off_garage_blanket
-            name: "Automatic Mode"
+          - entity: sensor.livingroom_hub_temperature
+            name: Temperatura
+            secondary_info: last-changed
+          - entity: sensor.livingroom_hub_humidity
+            name: Humedad
+            secondary_info: last-changed
+          - type: section
+          - entity: media_player.livingroom_television
+            name: Televisión
+          - entity: media_player.xbox_systemos
+            name: Xbox One
+          - type: section
+            label: Luz Acuario
+          - entity: switch.livingroom_aquariumplug_autoswitch
+            name: Apagar/Encender Automáticamente
           - type: conditional
             conditions:
-              - entity: automation.turn_on_off_garage_blanket
-                state: "off"
-            row:
-              entity: switch.blitzwolf_shp2_01_switch
-              name: "Turn On/Off"
-          - type: conditional
-            conditions:
-              - entity: automation.turn_on_off_garage_blanket
+              - entity: switch.livingroom_aquariumplug_autoswitch
                 state: "on"
             row:
-              entity: binary_sensor.blitzwolf_bw_shp2_switch_status
-              name: "Switch Status"
+              entity: sensor.livingroom_aquariumplug_nextturnoff
+              name: Próximo Apagado
           - type: conditional
             conditions:
-              - entity: automation.turn_on_off_garage_blanket
+              - entity: switch.livingroom_aquariumplug_autoswitch
                 state: "on"
             row:
-              entity: input_number.blitzwolf_bw_shp2_temperature_limit
-              name: "Temperature Limit"
-      - type: glance
-        title: "Landing"
+              entity: sensor.livingroom_aquariumplug_nextturnon
+              name: Próximo Encendido
+          - entity: switch.livingroom_aquariumplug_switch
+            name: Apagar/Encender
+      - title: Entrada
+        type: entities
+        show_header_toggle: false
+        state_color: false
         entities:
-          - entity: camera.rpi0w_meye_20f5d0f5
-            name: "Camera"
-  - id: 2
+          - type: section
+          - entity: camera.entrance_camera
+            name: Cámara
+      - title: Cocina
+        type: entities
+        entities:
+          - type: section
+          - entity: sensor.kitchen_hub_temperature
+            name: Temperatura
+            secondary_info: last-changed
+          - entity: sensor.kitchen_hub_humidity
+            name: Humedad
+            secondary_info: last-changed
+          - type: section
+          - entity: switch.kitchen_dishwasher_switch
+            name: Lavavajillas
+        show_header_toggle: false
+        state_color: true
+      - title: Lavadero
+        type: entities
+        entities:
+          - type: section
+          - entity: switch.utility_washingmachine_switch
+            name: Lavadora
+        show_header_toggle: false
+        state_color: true
+      - title: Garaje
+        type: entities
+        entities:
+          - type: section
+          - entity: sensor.garage_hub_temperature
+            name: Temperatura
+            secondary_info: last-changed
+          - entity: sensor.garage_hub_humidity
+            name: Humedad
+            secondary_info: last-changed
+          - type: section
+          - entity: camera.garage_camera
+            name: Cámara
+        show_header_toggle: false
+        state_color: false
+
+  - title: Primera Planta
     icon: mdi:home-floor-1
-    name: "First Floor"
-    path: first_floor
+    path: first-floor
     badges:
-      - person.dani
-      - person.eva
-      - sensor.first_floor_mean_temperature
-      - switch.boiler_heating
-      - sensor.electric_period
+      - entity: person.dani
+      - entity: person.eva
+      - entity: sensor.firstfloor_meantemperature
+        name: Temp. Media
+      - entity: switch.home_heater_switch
+        name: Calefacción
+      - entity: sensor.electricperiod
     cards:
       - type: thermostat
-        entity: climate.first_floor_thermostat
-      - type: glance
-        title: "Kid's Room"
+        entity: climate.firstfloor_thermostat
+        name: Termostato
+      - title: Dormitorio Niños
+        type: entities
+        show_header_toggle: false
+        state_color: true
         entities:
-          - entity: sensor.esp8266_01_temperature
-            name: "Temperature"
-          - entity: sensor.esp8266_01_humidity
-            name: "Humidity"
-      - type: glance
-        title: "Master Bedroom"
+          - type: section
+          - entity: sensor.kidsbedroom_hub_temperature
+            name: Temperatura
+            secondary_info: last-changed
+          - entity: sensor.kidsbedroom_hub_humidity
+            name: Humedad
+            secondary_info: last-changed
+          - type: section
+            label: Modo Noche
+          - entity: switch.kidsbedroom_nightplug_autoswitch
+            name: Apagar/Encender Automáticamente
+          - type: conditional
+            conditions:
+              - entity: switch.kidsbedroom_nightplug_autoswitch
+                state: "on"
+            row:
+              entity: sensor.kidsbedroom_nightplug_nextturnoff
+              name: Próximo Apagado
+          - type: conditional
+            conditions:
+              - entity: switch.kidsbedroom_nightplug_autoswitch
+                state: "on"
+            row:
+              entity: sensor.kidsbedroom_nightplug_nextturnon
+              name: Próximo Encendido
+          - entity: switch.kidsbedroom_nightplug_switch
+            name: Apagar/Encender
+      - title: Dormitorio Principal
+        type: entities
+        show_header_toggle: false
+        state_color: true
         entities:
-          - entity: sensor.esp8266_02_temperature
-            name: "Temperature"
-          - entity: sensor.esp8266_02_humidity
-            name: "Humidity"
-          - entity: media_player.webos_tv_lm6300pla
-            name: "Television"
-  - id: 3
+          - type: section
+          - entity: sensor.masterbedroom_hub_temperature
+            name: Temperatura
+            secondary_info: last-changed
+          - entity: sensor.masterbedroom_hub_humidity
+            name: Humedad
+            secondary_info: last-changed
+          - type: section
+          - entity: media_player.masterbedroom_television
+            name: Televisión
+          - type: section
+            label: Modo Noche
+          - entity: switch.masterbedroom_nightplug_autoswitch
+            name: Apagar/Encender Automáticamente
+          - type: conditional
+            conditions:
+              - entity: switch.masterbedroom_nightplug_autoswitch
+                state: "on"
+            row:
+              entity: sensor.masterbedroom_nightplug_nextturnoff
+              name: Próximo Apagado
+          - type: conditional
+            conditions:
+              - entity: switch.masterbedroom_nightplug_autoswitch
+                state: "on"
+            row:
+              entity: sensor.masterbedroom_nightplug_nextturnon
+              name: Próximo Encendido
+          - entity: switch.masterbedroom_nightplug_switch
+            name: Apagar/Encender
+
+  - title: Segunda Planta
     icon: mdi:home-floor-2
-    name: "Second Floor"
-    path: second_floor
+    path: second-floor
     badges:
-      - person.dani
-      - person.eva
-      - sensor.second_floor_mean_temperature
-      - switch.boiler_heating
-      - sensor.electric_period
+      - entity: person.dani
+      - entity: person.eva
+      - entity: sensor.secondfloor_meantemperature
+        name: Temp. Media
+      - entity: switch.home_heater_switch
+        name: Calefacción
+      - entity: sensor.electricperiod
     cards:
       - type: thermostat
-        entity: climate.second_floor_thermostat
-      - type: glance
-        title: "Office"
+        entity: climate.secondfloor_thermostat
+        name: Termostato
+      - title: Despacho
+        type: entities
         entities:
-          - entity: sensor.esp32_cam_01_temperature
-            name: "Temperature"
-          - entity: sensor.esp32_cam_01_humidity
-            name: "Humidity"
-  - id: 4
+          - type: section
+          - entity: sensor.office_hub_temperature
+            name: Temperatura
+            secondary_info: last-changed
+          - entity: sensor.office_hub_humidity
+            name: Humedad
+            secondary_info: last-changed
+        show_header_toggle: false
+        state_color: false
+
+  - title: Sistema
     icon: mdi:engine
-    name: "System"
     path: system
     badges:
-      - person.dani
-      - person.eva
-      - switch.boiler_heating
-      - sensor.electric_period
+      - entity: person.dani
+      - entity: person.eva
+      - entity: sensor.home_meantemperature
+        name: Temp. Media
+      - entity: switch.home_heater_switch
+        name: Calefacción
+      - entity: sensor.electricperiod
     cards:
-      - cards:
-          - cards:
-              - type: gauge
-                entity: sensor.processor_use
-              - type: gauge
-                entity: sensor.disk_use_percent
-              - type: gauge
-                entity: sensor.memory_use_percent
-            type: horizontal-stack
-          - entities:
-              - sensor.last_boot
-            type: entities
-        type: vertical-stack
-      - entities:
-          - sensor.speedtest_download
-          - sensor.speedtest_ping
-          - sensor.speedtest_upload
-        type: history-graph
-      - type: entities
-        title: "Automations"
+      - title: Baterias
+        type: entities
         entities:
-          - automation.telegram_send_message_on_mijia_flora_01_moisture_is_low
-          - automation.turn_on_off_garage_blanket
-          - automation.turn_on_the_heating_at_morning
-          - automation.restart_esp32_cam_everyday_at_a_time
-      - type: glance
-        title: "Status"
-        columns: 3
-        show_state: false
-        entities:
-          - entity: binary_sensor.esp32_01_status
-            name: "ESP32-01"
-          - entity: binary_sensor.esp32_02_status
-            name: "ESP32-02"
-          - entity: binary_sensor.esp32_03_status
-            name: "ESP32-03"
-          - entity: binary_sensor.esp32_cam_01_status
-            name: "ESP32-CAM-01"
-          - entity: binary_sensor.esp8266_01_status
-            name: "ESP8266-01"
-          - entity: binary_sensor.esp8266_02_status
-            name: "ESP8266-02"
-          - entity: binary_sensor.boiler_status
-            name: "Boiler"
-          - entity: binary_sensor.blitzwolf_shp2_01_status
-            name: "BlitzWolf BW-SHP2"
-      - type: glance
-        title: "Batteries"
+          - type: section
+          - sensor.oneplus_a5000_nivel_de_bateria
+          - sensor.iphone_de_eva_battery_level
         show_header_toggle: false
+        state_color: true
+      - title: Conectividad
+        type: entities
         entities:
-          - name: "Xiaomi Mijia Flora"
-            entity: sensor.xiaomi_mijia_flora_01_battery_level
-          - name: "iPhone X"
-            entity: sensor.iphone_x_battery_level
-          - name: "OnePlus 5"
-            entity: sensor.oneplus_a5000_battery_level
+          - type: section
+          - binary_sensor.home_heater_status
+          - type: section
+          - binary_sensor.kitchen_dishwasher_status
+          - binary_sensor.kitchen_hub_status
+          - binary_sensor.utility_washingmachine_status
+          - binary_sensor.garage_hub_status
+          - binary_sensor.livingroom_aquariumplug_status
+          - binary_sensor.livingroom_hub_status
+          - type: section
+          - binary_sensor.kidsbedroom_hub_status
+          - binary_sensor.kidsbedroom_nightplug_status
+          - binary_sensor.masterbedroom_hub_status
+          - binary_sensor.masterbedroom_nightplug_status
+          - type: section
+          - binary_sensor.office_hub_status
+        show_header_toggle: false
+        state_color: true
