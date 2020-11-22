@@ -20,6 +20,7 @@ alexa:
         - sensor.livingroom_hub_temperature
         - media_player.livingroom_television
         - media_player.xbox_systemos
+        - media_player.livingroom_xiaomimiboxs
         - switch.livingroom_aquariumplug_switch
         # FirstFloor
         - climate.firstfloor_thermostat

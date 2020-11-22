@@ -62,6 +62,8 @@ views:
             name: Televisión
           - entity: media_player.xbox_systemos
             name: Xbox One
+          - entity: media_player.livingroom_xiaomimiboxs
+            name: Mi Box S
           - type: section
             label: Luz Acuario
           - entity: switch.livingroom_aquariumplug_autoswitch

@@ -3,6 +3,9 @@ homeassistant:
     media_player.xbox_systemos:
       friendly_name: Salón - Xbox One
       icon: mdi:microsoft-xbox
+    media_player.livingroom_xiaomimiboxs:
+      friendly_name: Salón - Mi Box S
+      icon: mdi:remote-tv
     media_player.livingroom_television:
       friendly_name: Salón - Televisión
       icon: mdi:television-classic
@@ -19,3 +22,23 @@ webostv:
       service: wake_on_lan.send_magic_packet
       data:
         mac: !secret masterbedroom_television_mac
+
+media_player:
+  - platform: androidtv
+    name: LivingRoom XiaomiMiBoxS
+    host: !secret livingroom_xiaomimiboxs
+    device_class: androidtv
+    exclude_unnamed_apps: true
+    screencap: false
+    apps:
+      com.google.android.tvlauncher: "Inicio"
+      org.jellyfin.androidtv: "Jellyfin"
+      com.netflix.ninja: "Netflix"
+      com.amazon.avod: "Prime Video"
+      tv.pluto.android: "Pluto TV"
+      com.google.android.youtube.tv: "YouTube"
+      com.google.android.youtube.tvkids: "YouTube Kids"
+      com.google.android.tv: "Live Channels"
+      com.rtve.androidtv: "RTVE alacarta"
+      com.antena3.atresplayer.tv: "Atresplayer TV"
+      tv.accedo.mitele_xdk: "mitele"
