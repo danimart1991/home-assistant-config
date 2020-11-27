@@ -1,0 +1,60 @@
+google_assistant:
+  project_id: !secret google_assistant_project_id
+  service_account: !include ../google_assistant_service_account.json
+  report_state: true
+  expose_by_default: false
+  entity_config:
+    # Home
+    climate.home_thermostat:
+      room: Casa
+    # GroundFloor
+    climate.groundfloor_thermostat:
+      room: Planta Baja
+    # Entrance
+    camera.entrance_camera:
+      room: Entradita
+    # Garage
+    sensor.garage_hub_temperature:
+      room: Garaje
+    camera.garage_camera:
+      room: Garaje
+    # Kitchen
+    sensor.kitchen_hub_temperature:
+      room: Cocina
+    switch.kitchen_dishwasher_switch:
+      room: Cocina
+    # Utility
+    switch.utility_washingmachine_switch:
+      room: Lavadero
+    # LivingRoom
+    sensor.livingroom_hub_temperature:
+      room: Salón
+    media_player.livingroom_television:
+      room: Salón
+    media_player.xbox_systemos:
+      room: Salón
+    media_player.livingroom_xiaomimiboxs:
+      room: Salón
+    switch.livingroom_aquariumplug_switch:
+      room: Salón
+    # FirstFloor
+    climate.firstfloor_thermostat:
+      room: Primera Planta
+    # KidsBedroom
+    sensor.kidsbedroom_hub_temperature:
+      room: Dormitorio Niños
+    switch.kidsbedroom_nightplug_switch:
+      room: Dormitorio Niños
+    # MasterBedroom
+    sensor.masterbedroom_hub_temperature:
+      room: Dormitorio Matrimonio
+    media_player.masterbedroom_television:
+      room: Dormitorio Matrimonio
+    switch.masterbedroom_nightplug_switch:
+      room: Dormitorio Matrimonio
+    # SecondFloor
+    climate.secondfloor_thermostat:
+      room: Segunda Planta
+    # Office
+    sensor.office_hub_temperature:
+      room: Despacho
