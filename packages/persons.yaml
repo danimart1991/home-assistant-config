@@ -9,7 +9,7 @@ person:
   - name: Dani
     id: !secret user_dani_id
     device_trackers:
-      - device_tracker.oneplus_a5000
+      - device_tracker.mobility_phone_dani
   - name: Eva
     id: !secret user_eva_id
     device_trackers:

@@ -258,8 +258,10 @@ views:
         type: entities
         entities:
           - type: section
-          - sensor.oneplus_a5000_nivel_de_bateria
-          - sensor.iphone_de_eva_battery_level
+          - entity: sensor.mobility_phone_dani_nivel_de_la_bateria
+            name: Móvil Dani - Batería
+          - entity: sensor.iphone_de_eva_battery_level
+            name: Móvil Eva - Batería
         show_header_toggle: false
         state_color: true
       - title: Conectividad
