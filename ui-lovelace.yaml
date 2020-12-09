@@ -54,8 +54,8 @@ views:
         state_color: true
         entities:
           - type: section
-          - entity: sensor.livingroom_hub_temperature
-            name: Temperatura
+          - entity: climate.livingroom_thermostat
+            name: Termostato
             secondary_info: last-changed
           - entity: sensor.livingroom_hub_humidity
             name: Humedad
@@ -94,7 +94,7 @@ views:
       - title: Entrada
         type: entities
         show_header_toggle: false
-        state_color: false
+        state_color: true
         entities:
           - type: section
           - entity: camera.entrance_camera
@@ -103,8 +103,8 @@ views:
         type: entities
         entities:
           - type: section
-          - entity: sensor.kitchen_hub_temperature
-            name: Temperatura
+          - entity: climate.kitchen_thermostat
+            name: Termostato
             secondary_info: last-changed
           - entity: sensor.kitchen_hub_humidity
             name: Humedad
@@ -159,8 +159,8 @@ views:
         state_color: true
         entities:
           - type: section
-          - entity: sensor.kidsbedroom_hub_temperature
-            name: Temperatura
+          - entity: climate.kidsbedroom_thermostat
+            name: Termostato
             secondary_info: last-changed
           - entity: sensor.kidsbedroom_hub_humidity
             name: Humedad
@@ -191,8 +191,8 @@ views:
         state_color: true
         entities:
           - type: section
-          - entity: sensor.masterbedroom_hub_temperature
-            name: Temperatura
+          - entity: climate.masterbedroom_thermostat
+            name: Termostato
             secondary_info: last-changed
           - entity: sensor.masterbedroom_hub_humidity
             name: Humedad
@@ -238,16 +238,16 @@ views:
         name: Termostato
       - title: Despacho
         type: entities
+        show_header_toggle: false
+        state_color: true
         entities:
           - type: section
-          - entity: sensor.office_hub_temperature
-            name: Temperatura
+          - entity: climate.office_thermostat
+            name: Termostato
             secondary_info: last-changed
           - entity: sensor.office_hub_humidity
             name: Humedad
             secondary_info: last-changed
-        show_header_toggle: false
-        state_color: false
 
   - title: Sistema
     icon: mdi:engine
@@ -263,16 +263,38 @@ views:
     cards:
       - title: Baterias
         type: entities
+        show_header_toggle: false
+        state_color: true
         entities:
           - type: section
           - entity: sensor.mobility_phone_dani_nivel_de_la_bateria
             name: Móvil Dani - Batería
           - entity: sensor.iphone_de_eva_battery_level
             name: Móvil Eva - Batería
+      - title: Termostatos
+        type: entities
         show_header_toggle: false
         state_color: true
+        entities:
+          - type: section
+          - climate.home_thermostat
+          - group.home_heaters_group
+          - switch.home_heater_switch
+          - type: section
+          - climate.groundfloor_thermostat
+          - climate.kitchen_thermostat
+          - climate.livingroom_thermostat
+          - type: section
+          - climate.firstfloor_thermostat
+          - climate.kidsbedroom_thermostat
+          - climate.masterbedroom_thermostat
+          - type: section
+          - climate.secondfloor_thermostat
+          - climate.office_thermostat
       - title: Conectividad
         type: entities
+        show_header_toggle: false
+        state_color: true
         entities:
           - type: section
           - binary_sensor.home_heater_status
@@ -290,5 +312,3 @@ views:
           - binary_sensor.masterbedroom_nightplug_status
           - type: section
           - binary_sensor.office_hub_status
-        show_header_toggle: false
-        state_color: true

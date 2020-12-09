@@ -1,33 +1,77 @@
+# Variables usadas sin sustituciones permitidas
+# min_temp: 15
+# max_temp: 30
+# away_temp: 19
+
 homeassistant:
   customize_glob:
     sensor.*_meantemperature:
       device_class: temperature
       icon: mdi:thermometer
   customize:
+    # Automatizaciones
     automation.home_thermostat_turnupthetemperatureatmorning:
-      friendly_name: Casa - Termostato - Subir a 22º a las 6:00
+      friendly_name: "Casa - Termostato - Subir a 22º a las 6:00"
       icon: mdi:thermometer-chevron-up
+    automation.home_heater_turnoffallheatersonhomeassistantrestart:
+      friendly_name: "Casa - Calefacción - Apagar Calefacción al reiniciar HA"
+      icon: mdi:thermostat
+    automation.home_heater_turnonoffhomeheaterswitchonhomeheatersgroupchange:
+      friendly_name: "Casa - Calefacción - Encender/Apagar el Switch de Calefacción Casa al cambiar el Grupo de Calefacciones"
+      icon: mdi:thermostat
+    # Termostatos
     climate.home_thermostat:
-      friendly_name: Casa - Termostato
+      friendly_name: "Casa - Termostato"
     climate.groundfloor_thermostat:
-      friendly_name: Planta Baja - Termostato
+      friendly_name: "Planta Baja - Termostato"
+    climate.kitchen_thermostat:
+      friendly_name: "Cocina - Termostato"
+    climate.livingroom_thermostat:
+      friendly_name: "Salón - Termostato"
     climate.firstfloor_thermostat:
-      friendly_name: Primera Planta - Termostato
+      friendly_name: "Primera Planta - Termostato"
+    climate.kidsbedroom_thermostat:
+      friendly_name: "Dormitorio Niños - Termostato"
+    climate.masterbedroom_thermostat:
+      friendly_name: "Dormitorio Principal - Termostato"
     climate.secondfloor_thermostat:
-      friendly_name: Segunda Planta - Termostato
+      friendly_name: "Segunda Planta - Termostato"
+    climate.office_thermostat:
+      friendly_name: "Despacho - Termostato"
+    # Temperaturas Medias
     sensor.home_meantemperature:
-      friendly_name: Casa - Temperatura Media
+      friendly_name: "Casa - Temperatura Media"
     sensor.groundfloor_meantemperature:
-      friendly_name: Planta Baja - Temperatura Media
+      friendly_name: "Planta Baja - Temperatura Media"
     sensor.firstfloor_meantemperature:
-      friendly_name: Primera Planta - Temperatura Media
+      friendly_name: "Primera Planta - Temperatura Media"
     sensor.secondfloor_meantemperature:
-      friendly_name: Segunda Planta - Temperatura Media
+      friendly_name: "Segunda Planta - Temperatura Media"
 
 automation:
+  - id: home_heater_turnoffallheatersonhomeassistantrestart
+    alias: "Home - Heater - TurnOffAllHeatersOnHomeAssistantRestart"
+    description: "As all Thermostats goes off on HA Restart. This auto avoid has Heaters turned on when restart."
+    trigger:
+      - platform: homeassistant
+        event: start
+    action:
+      - service: homeassistant.turn_off
+        entity_id: group.home_heaters_group
+      - service: switch.turn_off
+        entity_id: switch.home_heater_switch
+  - id: home_heater_turnonoffhomeheaterswitchonhomeheatersgroupchange
+    alias: "Home - Heater - TurnOnOffHomeHeaterOnHomeHeatersGroupChange"
+    description: "Turn On/Off the Home Heater when the Home Heaters Group change."
+    trigger:
+      - platform: state
+        entity_id: group.home_heaters_group
+    action:
+      - service: "switch.turn_{{ trigger.to_state.state }}"
+        entity_id: switch.home_heater_switch
   - id: home_thermostat_turnupthetemperatureatmorning
     alias: "Home - Thermostat - TurnUpTheTemperatureAtMorning"
-    description: "Set target temperature at home to 22º at 06:00:00 if automatic thermostat is enabled"
+    description: "Set target temperature at home to 22º at 06:00:00 if automatic thermostat is enabled."
     trigger:
       - platform: time
         at: 06:00:00
@@ -43,35 +87,84 @@ automation:
           temperature: 22
 
 climate:
+  # Casa
   - platform: generic_thermostat
     name: home_thermostat
-    heater: switch.home_heater_switch
+    heater: switch.home_heater_fakeswitch
     target_sensor: sensor.home_meantemperature
     initial_hvac_mode: "off"
     away_temp: 19
-    target_temp: 22
+    min_temp: 15
+    max_temp: 30
+  # Planta Baja
   - platform: generic_thermostat
     name: groundfloor_thermostat
-    heater: switch.home_heater_switch
+    heater: switch.groundfloor_heater_fakeswitch
     target_sensor: sensor.groundfloor_meantemperature
     initial_hvac_mode: "off"
     away_temp: 19
-    target_temp: 22
+    min_temp: 15
+    max_temp: 30
+  - platform: generic_thermostat
+    name: kitchen_thermostat
+    heater: switch.kitchen_heater_fakeswitch
+    target_sensor: sensor.kitchen_hub_temperature
+    initial_hvac_mode: "off"
+    away_temp: 19
+    min_temp: 15
+    max_temp: 30
+  - platform: generic_thermostat
+    name: livingroom_thermostat
+    heater: switch.livingroom_heater_fakeswitch
+    target_sensor: sensor.livingroom_hub_temperature
+    initial_hvac_mode: "off"
+    away_temp: 19
+    min_temp: 15
+    max_temp: 30
+  # Primera Planta
   - platform: generic_thermostat
     name: firstfloor_thermostat
-    heater: switch.home_heater_switch
+    heater: switch.firstfloor_heater_fakeswitch
     target_sensor: sensor.firstfloor_meantemperature
     initial_hvac_mode: "off"
     away_temp: 19
-    target_temp: 22
+    min_temp: 15
+    max_temp: 30
+  - platform: generic_thermostat
+    name: kidsbedroom_thermostat
+    heater: switch.kidsbedroom_heater_fakeswitch
+    target_sensor: sensor.kidsbedroom_hub_temperature
+    initial_hvac_mode: "off"
+    away_temp: 19
+    min_temp: 15
+    max_temp: 30
+  - platform: generic_thermostat
+    name: masterbedroom_thermostat
+    heater: switch.masterbedroom_heater_fakeswitch
+    target_sensor: sensor.masterbedroom_hub_temperature
+    initial_hvac_mode: "off"
+    away_temp: 19
+    min_temp: 15
+    max_temp: 30
+  # Segunda Planta
   - platform: generic_thermostat
     name: secondfloor_thermostat
-    heater: switch.home_heater_switch
+    heater: switch.secondfloor_heater_fakeswitch
     target_sensor: sensor.secondfloor_meantemperature
     initial_hvac_mode: "off"
     away_temp: 19
-    target_temp: 22
+    min_temp: 15
+    max_temp: 30
+  - platform: generic_thermostat
+    name: office_thermostat
+    heater: switch.office_heater_fakeswitch
+    target_sensor: sensor.office_hub_temperature
+    initial_hvac_mode: "off"
+    away_temp: 19
+    min_temp: 15
+    max_temp: 30
 
+# Sensores Temperatura Media
 sensor:
   - platform: min_max
     name: home_meantemperature
@@ -101,3 +194,91 @@ sensor:
     round_digits: 1
     entity_ids:
       - sensor.office_hub_temperature
+
+# Grupo Calefacción
+group:
+  home_heaters_group:
+    name: Casa - Grupo Calefacción
+    icon: mdi:radiator
+    entities:
+      - switch.home_heater_fakeswitch
+      - switch.groundfloor_heater_fakeswitch
+      - switch.firstfloor_heater_fakeswitch
+      - switch.secondfloor_heater_fakeswitch
+      - switch.kidsbedroom_heater_fakeswitch
+      - switch.kitchen_heater_fakeswitch
+      - switch.livingroom_heater_fakeswitch
+      - switch.masterbedroom_heater_fakeswitch
+      - switch.office_heater_fakeswitch
+
+# Interruptores Fake
+switch:
+  - platform: template
+    switches:
+      # Casa
+      home_heater_fakeswitch:
+        friendly_name: Casa - Calefacción
+        icon_template: mdi:radiator
+        turn_on:
+          - delay: 5
+        turn_off:
+          - delay: 5
+      # Planta Baja
+      groundfloor_heater_fakeswitch:
+        friendly_name: Planta Baja - Calefacción
+        icon_template: mdi:radiator
+        turn_on:
+          - delay: 5
+        turn_off:
+          - delay: 5
+      kitchen_heater_fakeswitch:
+        friendly_name: Cocina - Calefacción
+        icon_template: mdi:radiator
+        turn_on:
+          - delay: 5
+        turn_off:
+          - delay: 5
+      livingroom_heater_fakeswitch:
+        friendly_name: Salón - Calefacción
+        icon_template: mdi:radiator
+        turn_on:
+          - delay: 5
+        turn_off:
+          - delay: 5
+      # Primera Planta
+      firstfloor_heater_fakeswitch:
+        friendly_name: Primera Planta - Calefacción
+        icon_template: mdi:radiator
+        turn_on:
+          - delay: 5
+        turn_off:
+          - delay: 5
+      kidsbedroom_heater_fakeswitch:
+        friendly_name: Dormitorio Niños - Calefacción
+        icon_template: mdi:radiator
+        turn_on:
+          - delay: 5
+        turn_off:
+          - delay: 5
+      masterbedroom_heater_fakeswitch:
+        friendly_name: Dormitorio Principal - Calefacción
+        icon_template: mdi:radiator
+        turn_on:
+          - delay: 5
+        turn_off:
+          - delay: 5
+      # Segunda Planta
+      secondfloor_heater_fakeswitch:
+        friendly_name: Segunda Planta - Calefacción
+        icon_template: mdi:radiator
+        turn_on:
+          - delay: 5
+        turn_off:
+          - delay: 5
+      office_heater_fakeswitch:
+        friendly_name: Despacho - Calefacción
+        icon_template: mdi:radiator
+        turn_on:
+          - delay: 5
+        turn_off:
+          - delay: 5
