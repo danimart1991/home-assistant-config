@@ -29,6 +29,9 @@ views:
       - type: weather-forecast
         entity: weather.casa_gande
         show_forecast: true
+      - type: custom:pvpc-hourly-pricing-card
+        name: "PVPC 2.0 DHA"
+        entity: sensor.pvpc
 
   - title: Planta Baja
     icon: mdi:home-floor-0

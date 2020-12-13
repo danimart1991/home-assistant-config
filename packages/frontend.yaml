@@ -1,2 +1,5 @@
 lovelace:
+  resources:
+    - url: /local/pvpc-hourly-pricing-card/pvpc-hourly-pricing-card.js?v=1.2.4
+      type: module
   mode: yaml
