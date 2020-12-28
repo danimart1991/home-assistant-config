@@ -22,6 +22,7 @@ alexa:
         - media_player.xbox_systemos
         - media_player.livingroom_xiaomimiboxs
         - switch.livingroom_aquariumplug_switch
+        - light.wled_0149bc
         # FirstFloor
         - climate.firstfloor_thermostat
         # KidsBedroom
@@ -40,3 +41,5 @@ alexa:
         display_categories: CAMERA
       camera.garage_camera:
         display_categories: CAMERA
+      light.wled_0149bc:
+        display_categories: CHRISTMAS_TREE

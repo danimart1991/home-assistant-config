@@ -68,6 +68,10 @@ views:
           - entity: media_player.livingroom_xiaomimiboxs
             name: Mi Box S
           - type: section
+          - entity: light.wled_0149bc
+            name: Árbol de Navidad
+            secondary_info: last-changed
+          - type: section
             label: Luz Acuario
           - entity: switch.livingroom_aquariumplug_autoswitch
             name: Apagar/Encender Automáticamente

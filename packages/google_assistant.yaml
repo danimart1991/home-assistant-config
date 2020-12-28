@@ -37,6 +37,8 @@ google_assistant:
       room: Salón
     switch.livingroom_aquariumplug_switch:
       room: Salón
+    light.wled_0149bc:
+      room: Salón
     # FirstFloor
     climate.firstfloor_thermostat:
       room: Primera Planta

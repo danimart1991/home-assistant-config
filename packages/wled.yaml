@@ -1,0 +1,6 @@
+homeassistant:
+  customize:
+    # WLED 0149bc (Christmas Lights)
+    light.wled_0149bc:
+      friendly_name: Salón - Árbol Navidad
+      icon: mdi:pine-tree
