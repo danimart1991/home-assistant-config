@@ -1,8 +1,25 @@
 sensor:
   - platform: template
     sensors:
+      # Requirements: 
+      #   - sensor.time_date (https://www.home-assistant.io/integrations/time_date/) with display_options: time.
+      #   - binary_sensor.workday (https://www.home-assistant.io/integrations/workday/) configured to Spain (ES).
       electricperiod:
         friendly_name: "Periodo Eléctrico"
         unique_id: electricperiod
-        value_template: "{{ 'valle' if states('sensor.time_utc') >= '21:00' or states('sensor.time_utc') < '11:00' else 'pico' }}"
-        icon_template: "{{ 'mdi:brightness-2' if states('sensor.time_utc') >= '21:00' or states('sensor.time_utc') < '11:00' else 'mdi:brightness-5' }}"
+        value_template: >-
+            {% if states('binary_sensor.workday_sensor') == 'off' or (states('sensor.time') >= '00:00' and states('sensor.time') < '08:00') %}
+              Valle  
+            {% elif (states('sensor.time') >= '10:00' and states('sensor.time') < '14:00') or (states('sensor.time') >= '18:00' and states('sensor.time') < '22:00') %}
+              Punta    
+            {% else %}
+              Llana
+            {% endif %}
+        icon_template: >-
+            {% if states('binary_sensor.workday_sensor') == 'off' or (states('sensor.time') >= '00:00' and states('sensor.time') < '08:00') %}
+              mdi:brightness-2  
+            {% elif (states('sensor.time') >= '10:00' and states('sensor.time') < '14:00') or (states('sensor.time') >= '18:00' and states('sensor.time') < '22:00') %}
+              mdi:brightness-5    
+            {% else %}
+              mdi:brightness-6
+            {% endif %}
