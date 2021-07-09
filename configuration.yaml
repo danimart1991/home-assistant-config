@@ -24,7 +24,3 @@ sensor:
     display_options:
       - "time_utc"
       - "time"
-
-binary_sensor:
-  - platform: workday
-    country: ES
